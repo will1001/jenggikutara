@@ -2,7 +2,7 @@
 
 
 @section('content')
-<section id="detail_berita" class="section-padding">
+<section id="detail_berita">
       <div class="container">
       <h1 class="text-center">{{$pengumumans->judulpengumuman}}</h1>
       <div class="row">

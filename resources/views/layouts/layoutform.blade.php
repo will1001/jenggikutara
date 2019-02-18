@@ -3,15 +3,31 @@
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('css/admin.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('css/responsive.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('css/animate.css')}}">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <meta name="author" content="John Doe">
+    <meta name="description" content="">
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title -->
+    <title>Desa Jenggik Utara</title>
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="apple-touch-icon" href="{{asset('images/apple-touch-icon.png')}}">
+    <link rel="shortcut icon" type="image/ico" href="{{asset('images/favicon.ico')}}" />
+    <!-- Plugin-CSS -->
+    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/themify-icons.css')}}">
+    <link rel="stylesheet" href="{{asset('css/magnific-popup.css')}}">
+    <link rel="stylesheet" href="{{asset('css/animate.css')}}">
+    <!-- Main-Stylesheets -->
+    <link rel="stylesheet" href="{{asset('css/normalize.css')}}">
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
+   <link rel="stylesheet" type="text/css" href="{{asset('css/profildesa.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/barangdesa.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/organisasi.css')}}">
+    <link rel="stylesheet" href="{{asset('css/responsiveform.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/lembaga.css')}}">
+    <script src="{{asset('js/vendor/modernizr-2.8.3.min.js')}}"></script>
 
 
 
@@ -20,49 +36,44 @@
   </head>
   <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-  <div class="container">
-    <a class="navbar-brand" href="{{url('/')}}">
-    <img src="{{asset('/images/kabupaten-lombok-timur-ntb (1).png')}}" width="40" height="50" alt="">  Desa Jenggik Utara
-  </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav ml-auto">
-      @guest
-                          <li>
-                              <a href="{{ route('login') }}">{{ __('Login') }}</a>
-                          </li>
-                    @else
-                    <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/') }}">Home</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->email }} <span class="caret"></span>
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-    </ul>
-    
-  </div>
-  </div>
-
-</nav>
+ <!--Mainmenu-area-->
+    <div class="mainmenu-area" data-spy="affix" data-offset-top="100">
+        <div class="container">
+            <!--Logo-->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#primary-menu">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="{{url('/')}}" class="navbar-brand logo">
+                  <img id="logo" src="/images/kabupaten-lombok-timur-ntb (1).png" alt="">
+                    <h5><strong>Website Resmi Pemerintah</strong></h5>
+                    <h2>Desa Jenggik Utara</h2>
+                </a>
+            </div>
+            <!--Logo/-->
+            <nav class="collapse navbar-collapse" id="primary-menu">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-item dropdown navigation">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            Daftar <span class="caret"></span>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="dropdowntabel">
+                        
+                        @if (Route::has('register'))
+                            <a class="nav-link" href="{{ route('register') }}">Daftar</a>
+                        @endif
+                        <div class="dropdown-divider"></div>
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <div class="dropdown-divider"></div> 
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <!--Mainmenu-area/-->
                 
 
     @yield('content')

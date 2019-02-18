@@ -138,6 +138,8 @@ Route::get('/formaddbumdes/{id}', 'admincontroller@formaddbumdes')->middleware('
 Route::get('/formsettingkopsurat', 'admincontroller@formsettingkopsurat')->middleware('auth');
 Route::post('/settingkopsurat', 'admincontroller@settingkopsurat')->middleware('auth');
 Route::get('/formaddSOTK', 'admincontroller@formaddSOTK')->middleware('auth');
+Route::post('/addSOTK', 'admincontroller@addSOTK')->middleware('auth');
+
 
 
 
