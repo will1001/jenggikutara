@@ -329,7 +329,18 @@ juga masih terdapat sederet perso . . . </p>
                 <div class="col-xs-12 col-sm-4">
                     <div class="single-blog">
                         <div class="blog-photo">
+                            @if($berita->urlgambar != null && $berita->urlvideo != null)
                             <img src="{{ $berita->urlgambar }}" alt="">
+                            @endif
+                            @if($berita->urlgambar == null && $berita->urlvideo != null)
+                            <iframe
+                                src="https://www.youtube.com/embed/{{$berita->urlvideo}}">
+                               </iframe>
+                            @endif
+                            @if($berita->urlgambar != null && $berita->urlvideo == null)
+                            <img src="{{ $berita->urlgambar }}" alt="">
+                            @endif
+
                         </div>
                         <div class="blog-content">
                             <h3><a href="{{ url('detailberitadesa/' .  $berita->judulberita ) }}">{{ $berita->judulberita }}</a></h3>

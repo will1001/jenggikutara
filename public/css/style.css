@@ -1048,9 +1048,7 @@ preloader
 }
 
 
-#berita img{
-    height:250px;
-}
+
 
 .Selengkapnyabutton{
     margin-top: 3vw;
@@ -1085,6 +1083,11 @@ preloader
 }
 
 #berita img{
+    width: 400px;
+    height: 300px;
+}
+
+#berita iframe{
     width: 400px;
     height: 300px;
 }
