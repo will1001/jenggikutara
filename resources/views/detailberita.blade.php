@@ -9,9 +9,16 @@
 
       <div class="row">
         <div class="col-md-12">
-            <img src="{{ $beritas->urlgambar }}" alt="" width="400px" height="250px">
-            <h3></h3>
+          @if($beritas->urlgambar != null)
+            <img src="{{ $beritas->urlgambar }}" alt="">
+            @endif
+            @if($beritas->urlvideo != null)
+               <iframe
+                src="https://www.youtube.com/embed/{{$beritas->urlvideo}}">
+               </iframe>
+            @endif
             <p style="white-space: pre-line;white-space: pre-wrap;">{{$beritas->deskripsi }}</p><br>
+             
         </div>
 
       </div>

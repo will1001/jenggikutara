@@ -25,7 +25,7 @@
    <link rel="stylesheet" type="text/css" href="{{asset('css/profildesa.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/barangdesa.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/organisasi.css')}}">
-    <link rel="stylesheet" href="{{asset('css/responsive.css')}}">
+    <link rel="stylesheet" href="{{asset('css/responsivedetailhalaman.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/lembaga.css')}}">
     <script src="{{asset('js/vendor/modernizr-2.8.3.min.js')}}"></script>
 
