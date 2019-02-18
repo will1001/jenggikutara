@@ -11,7 +11,9 @@
           {{ csrf_field() }}
           Nama :<br>
           <input type="text" name="Nama" value="{{ $SOTKs->Nama }}"><br><br>
-          Gambar : <br><br>
+          Jabatan :<br>
+          <input type="text" name="Jabatan" value="{{ $SOTKs->Jabatan }}"><br><br>
+          Foto : <br><br>
           <input type="file" name="urlgambar" id="urlgambar">
           <br><br>
           <input type="submit" value="Submit">
