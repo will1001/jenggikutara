@@ -205,17 +205,16 @@
     left: 5px;
    }
 
-   .mainmenu-area .logo h2 {
-    left: 13px;
-    margin-bottom: 0;
-    font-size: 18px;
-    position: relative;
-    top: -1vh;
-    width: 212px;
-   }
-
    .mainmenu-area .logo h5 {
-    left: 12px;
+    font-size: 12px;
+    }
+
+
+    .mainmenu-area .logo h2 {
+    width: 255px;
+    position: relative;
+    top: -7px;
+    font-size: 17px;
     }
 
     span.icon-bar {
