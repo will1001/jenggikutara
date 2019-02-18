@@ -2,7 +2,7 @@
 
 @section('content')
 
-<section id="berita-desa" class="section-padding">
+<section id="berita-desa">
       <div class="container">
       <h1 class="text-center">Berita Desa Pringgajurang</h1>
       @foreach($beritas as $berita)
