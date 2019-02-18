@@ -475,17 +475,15 @@
 
 
     .mainmenu-area .logo h5 {
-    width: 82vw;
-    padding-left: 0vw;
-    bottom: 1vh;
-    left: -16px;
+    font-size: 12px;
     }
 
 
     .mainmenu-area .logo h2 {
-    width: 63vw;
+    width: 395px;
     position: relative;
-    top: -1vh;
+    top: -7px;
+    font-size: 17px;
     }
 
     #visimisi img {
