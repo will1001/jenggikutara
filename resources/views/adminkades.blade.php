@@ -112,7 +112,7 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-12">
-            <h1>Tabel data Penduduk Desa Jenggik Utara</h1>
+            <h1>Data Penduduk Desa Jenggik Utara</h1>
           </div>
         </div>
         <div class="row">
@@ -305,7 +305,7 @@
 
 <section id="tabelberita" class="section-padding  gray-bg">
       <div class="container-fluid">
-         <h1>Tabel data Berita Desa</h1>
+         <h1>Data Berita Desa</h1>
         <div class="row">
           <div class="col-md-12">
              <div style="overflow: auto;max-height: 400px;position: relative;  ">
@@ -355,7 +355,7 @@
 
       <section id="tabelpengumuman">
       <div class="container-fluid">
-        <h1>Tabel data Pengumuman Desa</h1>
+        <h1>Data Pengumuman Desa</h1>
         <div class="row">
           <div class="col-md-12">
             <div style="overflow: auto;max-height: 400px;position: relative;  ">
@@ -439,7 +439,7 @@
 
     <section id="dataakundesa" class="section-padding tabel5kolom  gray-bg">
       <div class="container-fluid">
-         <h1>Tabel Data Akun Login Web Desa</h1>
+         <h1>Data Akun Login Web Desa</h1>
         <div class="row">
           <div class="col-md-12">
             <div style="overflow: auto;max-height: 400px;position: relative;  ">

@@ -324,7 +324,7 @@
 
 <section id="tabelberita" class="section-padding tabel7kolom">
       <div class="container-fluid">
-         <h1>Tabel data Barang</h1>
+         <h1>Data Barang</h1>
         <div class="row">
           <div class="col-md-12">
             <div style="overflow: auto;max-height: 400px;position: relative;  ">

@@ -13,22 +13,17 @@
     width: 36vw;
 }
 
-.mainmenu-area .logo h2 {
-    margin-bottom: 0;
-    font-size: 22px;
-    position: relative;
-    top: 0vh;
-}
-
 .mainmenu-area .logo h5 {
-    margin-bottom: 0;
-    font-size: 13px;
-    
+    font-size: 12px;
+    }
+
+
+    .mainmenu-area .logo h2 {
+    width: 255px;
     position: relative;
-    bottom: 0vh;
-    left: -381px;
-    
-}
+    top: -7px;
+    font-size: 17px;
+    }
 
 .mainmenu-area #primary-menu > ul > li > a {
     background: none;

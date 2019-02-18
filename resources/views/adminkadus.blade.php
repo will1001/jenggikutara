@@ -114,7 +114,7 @@
         </div>
         <div class="row">
           <div class="col-md-12">
-            <h1 style="margin-bottom: 35px;">Tabel Data Penduduk Dusun {{$kode_area_dusuns[0]->Nama_Dusun}}</h1>
+            <h1 style="margin-bottom: 35px;">Data Penduduk Dusun {{$kode_area_dusuns[0]->Nama_Dusun}}</h1>
 
            <div style="overflow: auto;max-height: 400px;position: relative;  ">
       <table id="tabeldatakadus">

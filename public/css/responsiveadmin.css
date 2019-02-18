@@ -138,6 +138,12 @@
     }
 
 
+    h1 {
+    font-size: 21px;
+    margin: 5px 0px;
+    }
+
+
     #Pengumuman{
     width: 100%;
     left: 0vw;
@@ -186,6 +192,7 @@
     position: relative;
     right: 122px;
     bottom: 16px;
+    width: 125px;
    }
 
    input#search {

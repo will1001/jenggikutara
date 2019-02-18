@@ -79,7 +79,7 @@
                             </li>
                             <li class="nav-item dropdown navigation">
                               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                Tabel Data <span class="caret"></span>
+                                Data <span class="caret"></span>
                               </a>
                               <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="dropdowntabel">
                                 <a class="dropdown-item" href="#tabelberita">Tabel Berita</a>
@@ -127,7 +127,7 @@
 
     <section id="tabelberita" class="section-padding">
       <div class="container-fluid">
-         <h1>Tabel data Berita Desa</h1>
+         <h1>Data Berita Desa</h1>
         <div class="row">
           <div class="col-md-12">
             <div class="limiter">
@@ -183,7 +183,7 @@
 
       <section id="tabelpengumuman">
       <div class="contaitabelluid">
-        <h1>Tabel data Pengumuman Desa</h1>
+        <h1>Data Pengumuman Desa</h1>
         <div class="row">
           <div class="col-md-12">
           <div class="limiter">
@@ -240,7 +240,7 @@
 
       <section id="tabeljmlpend"  class="tabel5kolom section-padding">
       <div class="container-fluid">
-        <h1>Tabel data Jumlah Penduduk Desa Jenggik Utara</h1>
+        <h1>Data Jumlah Penduduk Desa Jenggik Utara</h1>
           <div class="col-md-12">
           <div class="limiter">
                           <div class="container-table100">
