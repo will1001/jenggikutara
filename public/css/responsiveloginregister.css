@@ -569,7 +569,7 @@
     }
 
     #registerform .btn {
-    left: 31vw;
+    left: 31px!important;
     }
 
     a.btn.btn-link {
