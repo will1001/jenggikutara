@@ -528,16 +528,16 @@
 
 
     .mainmenu-area .logo h5 {
-    width: 82vw;
+    width: 279px;
     padding-left: 0vw;
-    bottom: 1vh;
+    bottom: 7px;
     }
 
 
     .mainmenu-area .logo h2 {
-    width: 63vw;
+    width: 279px;
     position: relative;
-    top: -1vh;
+    top: -12px;
     }
 
     #visimisi img {
@@ -568,6 +568,10 @@
     left: 13vw;
     }
 
+    .registerform .btn {
+    left: 31vw;
+    }
+
     a.btn.btn-link {
     left: 9vw;
     }
@@ -581,6 +585,18 @@
     left: 13vw;
     bottom: 11vh;
     font-size: 19px;
+    }
+
+    .registerform .card-header {
+        left: 0px;
+    }
+
+    .form-control {
+        width: auto;
+    }
+
+    .registerform label {
+        width: 201px;
     }
 
     
