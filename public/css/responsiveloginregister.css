@@ -2,23 +2,23 @@
 
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
 
-    .registerform .card-body {
+    #registerform .card-body {
     left: 43%;
     }
 
-    .registerform .card-header {
+    #registerform .card-header {
     left: 29%;
     }
 
-    .registerform .btn {
+    #registerform .btn {
     left: 107%;
     }
 
-    .registerform label {
+    #registerform label {
     width: 159px;
     }
 
-    .registerform form {
+    #registerform form {
     left: 6%;
     }
 
@@ -115,23 +115,23 @@
     }
 
 
-    .registerform .card-header {
+    #registerform .card-header {
     left: 0%;
     }   
 
-    .registerform .card-body {
+    #registerform .card-body {
     left: 13%;
     }
 
-    .registerform .btn {
+    #registerform .btn {
     left: 99%;
     }
 
-    .registerform label {
+    #registerform label {
     width: 159px;
     }
 
-    .registerform form {
+    #registerform form {
     left: 9%;
     }
 
@@ -280,15 +280,15 @@
     }
 
 
-    .registerform .card-header {
+    #registerform .card-header {
     left: 2%;
     }
 
-    .registerform .card-body {
+    #registerform .card-body {
     left: 8%;
     }
 
-    .registerform .btn {
+    #registerform .btn {
     left: 117%;
     }
 
@@ -568,7 +568,7 @@
     left: 13vw;
     }
 
-    .registerform .btn {
+    #registerform .btn {
     left: 31vw;
     }
 
@@ -587,7 +587,7 @@
     font-size: 19px;
     }
 
-    .registerform .card-header {
+    #registerform .card-header {
         left: 0px;
     }
 
@@ -595,7 +595,7 @@
         width: auto;
     }
 
-    .registerform label {
+    #registerform label {
         width: 201px;
     }
 
