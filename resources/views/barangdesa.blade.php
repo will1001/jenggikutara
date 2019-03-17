@@ -4,7 +4,6 @@
 
 
 
-<br><br><br><br>
 
     <section id="barang-desa">
       <div class="container">

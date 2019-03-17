@@ -183,7 +183,7 @@
 
     section{
         width: 100%;
-        padding-top: 21px;
+        padding-top: 31px;
     }
 
     
@@ -312,22 +312,24 @@
     }
 
     #logo {
-    height: 7vh;
+    height: auto;
+    width: 37px;
     bottom: 19px;
     left: 5px;
    }
 
    .mainmenu-area .logo h2 {
-    left: 13px;
+    left: 5px;
     margin-bottom: 0;
     font-size: 18px;
     position: relative;
-    top: -1vh;
-    width: 212px;
+    top: -13px;
+    width: 279px;
    }
 
    .mainmenu-area .logo h5 {
-    left: 12px;
+    left: -6px;
+    bottom: 13px;
     }
 
     span.icon-bar {
