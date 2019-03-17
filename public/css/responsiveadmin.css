@@ -200,20 +200,25 @@
     }
 
     #logo {
-    height: 7vh;
+    height: auto;
+    width: 37px;
     bottom: 19px;
     left: 5px;
    }
 
    .mainmenu-area .logo h5 {
     font-size: 12px;
+    bottom: 7px;
+    left: 7px;
+    width: 279px;
     }
 
 
     .mainmenu-area .logo h2 {
-    width: 255px;
+    width: 279px;
     position: relative;
     top: -7px;
+    letter-spacing: ;: -7px;
     font-size: 17px;
     }
 
