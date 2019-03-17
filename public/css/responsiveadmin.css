@@ -177,20 +177,20 @@
 
     #tombol_search {
     position: relative;
-    right: -5px;
-    top: 6px;
+    right: -13px;
+    top: 5px;
     }
 
     .search {
     position: relative;
-    left: 3px;
+    left: 12px;
     top: 9px;
     width: 121px;
     }
 
     #filter {
     position: relative;
-    right: 122px;
+    right: 107px;
     bottom: 16px;
     width: 125px;
    }
