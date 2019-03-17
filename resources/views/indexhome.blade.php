@@ -60,6 +60,7 @@
                     <li><a href="#lembaga">Lembaga</a></li>
                     <li><a href="#berita">Berita</a></li>
                     <li><a href="#organisasi">Organisasi</a></li>
+                    <li><a href="{{url('statistik')}}">Statistik</a></li>
                     <li class="nav-item dropdown navigation">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             Daftar <span class="caret"></span>
