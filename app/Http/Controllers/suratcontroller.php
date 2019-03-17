@@ -61,42 +61,42 @@ class suratcontroller extends Controller
           $mytime = Carbon\Carbon::now();
         
           $file   = public_path('storage/surat/surat_ket_domisili.docx');
-          $hasil   = public_path('storage/surat/surat_ket_domisili_.docx');
+          $hasil   = public_path('storage/surat/surat_ket_domisili_.doc');
           $phpWord = new PhpWord();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
 
           
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
-          $doc -> setValue('nama',$data_penduduks[0]->Nama);
-          $doc -> setValue('no_ktp',$data_penduduks[0]->NIK);
-          $doc -> setValue('no_KK',$data_penduduks[0]->Nomor_KK);
-          $doc -> setValue('kepala_kk',$data_penduduks[0]->Kepala_Keluarga);
-          $doc -> setValue('tempatlahir',$data_penduduks[0]->Tempat_Lahir);
-          $doc -> setValue('tanggallahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
-          $doc -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
-          $doc -> setValue('agama',$data_penduduks[0]->agama);
-          $doc -> setValue('status_perkawinan',$data_penduduks[0]->status_perkawinan);
-          $doc -> setValue('pendidikan',$data_penduduks[0]->pendidikan);
-          $doc -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
-          $doc -> setValue('kewarganegaraan',$data_penduduks[0]->kewarganegaraan);
-          $doc -> setValue('alamat',$data_penduduks[0]->Alamat);
-          $doc -> setValue('rt',$data_penduduks[0]->RT);
-          $doc -> setValue('rw',$data_penduduks[0]->RW);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
+          $docx -> setValue('nama',$data_penduduks[0]->Nama);
+          $docx -> setValue('no_ktp',$data_penduduks[0]->NIK);
+          $docx -> setValue('no_KK',$data_penduduks[0]->Nomor_KK);
+          $docx -> setValue('kepala_kk',$data_penduduks[0]->Kepala_Keluarga);
+          $docx -> setValue('tempatlahir',$data_penduduks[0]->Tempat_Lahir);
+          $docx -> setValue('tanggallahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
+          $docx -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
+          $docx -> setValue('agama',$data_penduduks[0]->agama);
+          $docx -> setValue('status_perkawinan',$data_penduduks[0]->status_perkawinan);
+          $docx -> setValue('pendidikan',$data_penduduks[0]->pendidikan);
+          $docx -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
+          $docx -> setValue('kewarganegaraan',$data_penduduks[0]->kewarganegaraan);
+          $docx -> setValue('alamat',$data_penduduks[0]->Alamat);
+          $docx -> setValue('rt',$data_penduduks[0]->RT);
+          $docx -> setValue('rw',$data_penduduks[0]->RW);
           if($kode_area_dusuns->count()==0){
-            $doc -> setValue('dusun',"-");
+            $docx -> setValue('dusun',"-");
 
           }else{
-            $doc -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
+            $docx -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
           }
           
           
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -121,41 +121,41 @@ class suratcontroller extends Controller
           $mytime = Carbon\Carbon::now();
         
           $file   = public_path('storage/surat/surat_ket_domisili.docx');
-          $hasil   = public_path('storage/surat/surat_ket_domisili_.docx');
+          $hasil   = public_path('storage/surat/surat_ket_domisili_.doc');
           $phpWord = new PhpWord();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
 
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
-          $doc -> setValue('nama',$data_penduduks[0]->Nama);
-          $doc -> setValue('no_ktp',$data_penduduks[0]->NIK);
-          $doc -> setValue('no_KK',$data_penduduks[0]->Nomor_KK);
-          $doc -> setValue('kepala_kk',$data_penduduks[0]->Kepala_Keluarga);
-          $doc -> setValue('tempatlahir',$data_penduduks[0]->Tempat_Lahir);
-          $doc -> setValue('tanggallahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
-          $doc -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
-          $doc -> setValue('agama',$data_penduduks[0]->agama);
-          $doc -> setValue('status_perkawinan',$data_penduduks[0]->status_perkawinan);
-          $doc -> setValue('pendidikan',$data_penduduks[0]->pendidikan);
-          $doc -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
-          $doc -> setValue('kewarganegaraan',$data_penduduks[0]->kewarganegaraan);
-          $doc -> setValue('alamat',$data_penduduks[0]->Alamat);
-          $doc -> setValue('rt',$data_penduduks[0]->RT);
-          $doc -> setValue('rw',$data_penduduks[0]->RW);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
+          $docx -> setValue('nama',$data_penduduks[0]->Nama);
+          $docx -> setValue('no_ktp',$data_penduduks[0]->NIK);
+          $docx -> setValue('no_KK',$data_penduduks[0]->Nomor_KK);
+          $docx -> setValue('kepala_kk',$data_penduduks[0]->Kepala_Keluarga);
+          $docx -> setValue('tempatlahir',$data_penduduks[0]->Tempat_Lahir);
+          $docx -> setValue('tanggallahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
+          $docx -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
+          $docx -> setValue('agama',$data_penduduks[0]->agama);
+          $docx -> setValue('status_perkawinan',$data_penduduks[0]->status_perkawinan);
+          $docx -> setValue('pendidikan',$data_penduduks[0]->pendidikan);
+          $docx -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
+          $docx -> setValue('kewarganegaraan',$data_penduduks[0]->kewarganegaraan);
+          $docx -> setValue('alamat',$data_penduduks[0]->Alamat);
+          $docx -> setValue('rt',$data_penduduks[0]->RT);
+          $docx -> setValue('rw',$data_penduduks[0]->RW);
           if($kode_area_dusuns->count()==0){
-            $doc -> setValue('dusun',"-");
+            $docx -> setValue('dusun',"-");
 
           }else{
-            $doc -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
+            $docx -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
           }
           
           
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -196,40 +196,40 @@ class suratcontroller extends Controller
 
         
           $file   = public_path('storage/surat/surat_ket_pindah_penduduk.docx');
-          $hasil   = public_path('storage/surat/surat_ket_pindah_penduduk_.docx');
+          $hasil   = public_path('storage/surat/surat_ket_pindah_penduduk_.doc');
           $phpWord = new PhpWord();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
 
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
-          $doc -> setValue('kepala_kk',$data_penduduks[0]->Kepala_Keluarga);  
-          $doc -> setValue('nama',$data_penduduks[0]->Nama);
-          $doc -> setValue('no_ktp',$data_penduduks[0]->NIK);
-          $doc -> setValue('tempatlahir',$data_penduduks[0]->Tempat_Lahir);
-          $doc -> setValue('tanggallahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
-          $doc -> setValue('umur',$data_penduduks[0]->Usia);
-          $doc -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
-          $doc -> setValue('agama',$data_penduduks[0]->agama);
-          $doc -> setValue('pendidikan',$data_penduduks[0]->pendidikan);
-          $doc -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
-          $doc -> setValue('kewarganegaraan',$data_penduduks[0]->kewarganegaraan);
-          $doc -> setValue('alamat',$data_penduduks[0]->Alamat);
-          $doc -> setValue('rt',$data_penduduks[0]->RT);
-          $doc -> setValue('rw',$data_penduduks[0]->RW);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
+          $docx -> setValue('kepala_kk',$data_penduduks[0]->Kepala_Keluarga);  
+          $docx -> setValue('nama',$data_penduduks[0]->Nama);
+          $docx -> setValue('no_ktp',$data_penduduks[0]->NIK);
+          $docx -> setValue('tempatlahir',$data_penduduks[0]->Tempat_Lahir);
+          $docx -> setValue('tanggallahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
+          $docx -> setValue('umur',$data_penduduks[0]->Usia);
+          $docx -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
+          $docx -> setValue('agama',$data_penduduks[0]->agama);
+          $docx -> setValue('pendidikan',$data_penduduks[0]->pendidikan);
+          $docx -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
+          $docx -> setValue('kewarganegaraan',$data_penduduks[0]->kewarganegaraan);
+          $docx -> setValue('alamat',$data_penduduks[0]->Alamat);
+          $docx -> setValue('rt',$data_penduduks[0]->RT);
+          $docx -> setValue('rw',$data_penduduks[0]->RW);
           if($kode_area_dusuns->count()==0){
-            $doc -> setValue('dusun',"-");
+            $docx -> setValue('dusun',"-");
 
           }else{
-            $doc -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
+            $docx -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
           }
           
           
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -257,40 +257,40 @@ class suratcontroller extends Controller
 
         
           $file   = public_path('storage/surat/surat_ket_pindah_penduduk.docx');
-          $hasil   = public_path('storage/surat/surat_ket_pindah_penduduk_.docx');
+          $hasil   = public_path('storage/surat/surat_ket_pindah_penduduk_.doc');
           $phpWord = new PhpWord();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
 
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
-          $doc -> setValue('kepala_kk',$data_penduduks[0]->Kepala_Keluarga);  
-          $doc -> setValue('nama',$data_penduduks[0]->Nama);
-          $doc -> setValue('no_ktp',$data_penduduks[0]->NIK);
-          $doc -> setValue('tempatlahir',$data_penduduks[0]->Tempat_Lahir);
-          $doc -> setValue('tanggallahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
-          $doc -> setValue('umur',$data_penduduks[0]->Usia);
-          $doc -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
-          $doc -> setValue('agama',$data_penduduks[0]->agama);
-          $doc -> setValue('pendidikan',$data_penduduks[0]->pendidikan);
-          $doc -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
-          $doc -> setValue('kewarganegaraan',$data_penduduks[0]->kewarganegaraan);
-          $doc -> setValue('alamat',$data_penduduks[0]->Alamat);
-          $doc -> setValue('rt',$data_penduduks[0]->RT);
-          $doc -> setValue('rw',$data_penduduks[0]->RW);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
+          $docx -> setValue('kepala_kk',$data_penduduks[0]->Kepala_Keluarga);  
+          $docx -> setValue('nama',$data_penduduks[0]->Nama);
+          $docx -> setValue('no_ktp',$data_penduduks[0]->NIK);
+          $docx -> setValue('tempatlahir',$data_penduduks[0]->Tempat_Lahir);
+          $docx -> setValue('tanggallahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
+          $docx -> setValue('umur',$data_penduduks[0]->Usia);
+          $docx -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
+          $docx -> setValue('agama',$data_penduduks[0]->agama);
+          $docx -> setValue('pendidikan',$data_penduduks[0]->pendidikan);
+          $docx -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
+          $docx -> setValue('kewarganegaraan',$data_penduduks[0]->kewarganegaraan);
+          $docx -> setValue('alamat',$data_penduduks[0]->Alamat);
+          $docx -> setValue('rt',$data_penduduks[0]->RT);
+          $docx -> setValue('rw',$data_penduduks[0]->RW);
           if($kode_area_dusuns->count()==0){
-            $doc -> setValue('dusun',"-");
+            $docx -> setValue('dusun',"-");
 
           }else{
-            $doc -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
+            $docx -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
           }
           
           
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -317,7 +317,7 @@ class suratcontroller extends Controller
 
         
           $file   = public_path('storage/surat/nikah/surat_izin_keramaian.docx');
-          $hasil   = public_path('storage/surat/nikah/surat_izin_keramaian_.docx');
+          $hasil   = public_path('storage/surat/nikah/surat_izin_keramaian_.doc');
           $phpWord = new PhpWord();
 
           $data_penduduks = \DB::table('data_penduduks')
@@ -340,29 +340,29 @@ class suratcontroller extends Controller
 
           $mytime = Carbon\Carbon::now();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
           $mytime = Carbon\Carbon::now();
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
           
-          $doc -> setValue('nama',$data_penduduks[0]->Nama);
+          $docx -> setValue('nama',$data_penduduks[0]->Nama);
           
-          $doc -> setValue('alamat',$data_penduduks[0]->Alamat);
-          $doc -> setValue('rt',$data_penduduks[0]->RT);
-          $doc -> setValue('rw',$data_penduduks[0]->RW);
+          $docx -> setValue('alamat',$data_penduduks[0]->Alamat);
+          $docx -> setValue('rt',$data_penduduks[0]->RT);
+          $docx -> setValue('rw',$data_penduduks[0]->RW);
           if($kode_area_dusuns->count()==0){
-            $doc -> setValue('dusun',"-");
+            $docx -> setValue('dusun',"-");
 
           }else{
-            $doc -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
+            $docx -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
           }
           
           
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -374,7 +374,7 @@ class suratcontroller extends Controller
 
         
           $file   = public_path('storage/surat/nikah/surat_izin_keramaian.docx');
-          $hasil   = public_path('storage/surat/nikah/surat_izin_keramaian_.docx');
+          $hasil   = public_path('storage/surat/nikah/surat_izin_keramaian_.doc');
           $phpWord = new PhpWord();
 
           $data_penduduks = \DB::table('data_penduduks')
@@ -397,29 +397,29 @@ class suratcontroller extends Controller
 
           $mytime = Carbon\Carbon::now();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
           $mytime = Carbon\Carbon::now();
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
           
-          $doc -> setValue('nama',$data_penduduks[0]->Nama);
+          $docx -> setValue('nama',$data_penduduks[0]->Nama);
           
-          $doc -> setValue('alamat',$data_penduduks[0]->Alamat);
-          $doc -> setValue('rt',$data_penduduks[0]->RT);
-          $doc -> setValue('rw',$data_penduduks[0]->RW);
+          $docx -> setValue('alamat',$data_penduduks[0]->Alamat);
+          $docx -> setValue('rt',$data_penduduks[0]->RT);
+          $docx -> setValue('rw',$data_penduduks[0]->RW);
           if($kode_area_dusuns->count()==0){
-            $doc -> setValue('dusun',"-");
+            $docx -> setValue('dusun',"-");
 
           }else{
-            $doc -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
+            $docx -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
           }
           
           
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -441,7 +441,7 @@ class suratcontroller extends Controller
 
           // surat kehendak nikah
           $file   = public_path('storage/surat/nikah/surat_kehendak_nikah.docx');
-          $hasil   = public_path('storage/surat/nikah/surat_kehendak_nikah_.docx');
+          $hasil   = public_path('storage/surat/nikah/surat_kehendak_nikah_.doc');
           $phpWord = new PhpWord();
 
           $data_penduduks = \DB::table('data_penduduks')
@@ -464,13 +464,13 @@ class suratcontroller extends Controller
 
           $mytime = Carbon\Carbon::now();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
           $mytime = Carbon\Carbon::now();
           
           
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -484,7 +484,7 @@ class suratcontroller extends Controller
 
           // surat kehendak nikah
           $file   = public_path('storage/surat/nikah/surat_kehendak_nikah.docx');
-          $hasil   = public_path('storage/surat/nikah/surat_kehendak_nikah_.docx');
+          $hasil   = public_path('storage/surat/nikah/surat_kehendak_nikah_.doc');
           $phpWord = new PhpWord();
 
           $data_penduduks = \DB::table('data_penduduks')
@@ -507,13 +507,13 @@ class suratcontroller extends Controller
 
           $mytime = Carbon\Carbon::now();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
           $mytime = Carbon\Carbon::now();
           
           
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -538,7 +538,7 @@ class suratcontroller extends Controller
           // surat keterangan nikah
 
           $file   = public_path('storage/surat/nikah/surat_ket_nikah.docx');
-          $hasil   = public_path('storage/surat/nikah/surat_ket_nikah_.docx');
+          $hasil   = public_path('storage/surat/nikah/surat_ket_nikah_.doc');
           $phpWord = new PhpWord();
 
           $data_penduduks = \DB::table('data_penduduks')
@@ -561,16 +561,16 @@ class suratcontroller extends Controller
 
           $mytime = Carbon\Carbon::now();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
           
           
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -584,7 +584,7 @@ class suratcontroller extends Controller
           // surat keterangan nikah
 
           $file   = public_path('storage/surat/nikah/surat_ket_nikah.docx');
-          $hasil   = public_path('storage/surat/nikah/surat_ket_nikah_.docx');
+          $hasil   = public_path('storage/surat/nikah/surat_ket_nikah_.doc');
           $phpWord = new PhpWord();
 
           $data_penduduks = \DB::table('data_penduduks')
@@ -607,16 +607,16 @@ class suratcontroller extends Controller
 
           $mytime = Carbon\Carbon::now();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
           
           
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -638,7 +638,7 @@ class suratcontroller extends Controller
         
           // Surat keterangan Wali
           $file   = public_path('storage/surat/nikah/surat_ket_wali.docx');
-          $hasil   = public_path('storage/surat/nikah/surat_ket_wali_.docx');
+          $hasil   = public_path('storage/surat/nikah/surat_ket_wali_.doc');
           $phpWord = new PhpWord();
 
           $data_penduduks = \DB::table('data_penduduks')
@@ -661,15 +661,15 @@ class suratcontroller extends Controller
 
           $mytime = Carbon\Carbon::now();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
           $mytime = Carbon\Carbon::now();
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
         
@@ -681,7 +681,7 @@ class suratcontroller extends Controller
         
           // Surat keterangan Wali
           $file   = public_path('storage/surat/nikah/surat_ket_wali.docx');
-          $hasil   = public_path('storage/surat/nikah/surat_ket_wali_.docx');
+          $hasil   = public_path('storage/surat/nikah/surat_ket_wali_.doc');
           $phpWord = new PhpWord();
 
           $data_penduduks = \DB::table('data_penduduks')
@@ -704,15 +704,15 @@ class suratcontroller extends Controller
 
           $mytime = Carbon\Carbon::now();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
           $mytime = Carbon\Carbon::now();
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
         
@@ -734,7 +734,7 @@ class suratcontroller extends Controller
          
           // Surat keterangan Wali hakim
            $file   = public_path('storage/surat/nikah/surat_ket_wali_hakim.docx');
-          $hasil   = public_path('storage/surat/nikah/surat_ket_wali_hakim_.docx');
+          $hasil   = public_path('storage/surat/nikah/surat_ket_wali_hakim_.doc');
           $phpWord = new PhpWord();
 
           $data_penduduks = \DB::table('data_penduduks')
@@ -757,15 +757,15 @@ class suratcontroller extends Controller
 
           $mytime = Carbon\Carbon::now();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
           $mytime = Carbon\Carbon::now();
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
           
@@ -777,7 +777,7 @@ class suratcontroller extends Controller
          
           // Surat keterangan Wali hakim
            $file   = public_path('storage/surat/nikah/surat_ket_wali_hakim.docx');
-          $hasil   = public_path('storage/surat/nikah/surat_ket_wali_hakim_.docx');
+          $hasil   = public_path('storage/surat/nikah/surat_ket_wali_hakim_.doc');
           $phpWord = new PhpWord();
 
           $data_penduduks = \DB::table('data_penduduks')
@@ -800,15 +800,15 @@ class suratcontroller extends Controller
 
           $mytime = Carbon\Carbon::now();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
           $mytime = Carbon\Carbon::now();
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
           
@@ -830,7 +830,7 @@ class suratcontroller extends Controller
         
           // Surat Persetujuan mempelai
           $file   = public_path('storage/surat/nikah/surat_persetujuan_mempelai.docx');
-          $hasil   = public_path('storage/surat/nikah/surat_persetujuan_mempelai_.docx');
+          $hasil   = public_path('storage/surat/nikah/surat_persetujuan_mempelai_.doc');
           $phpWord = new PhpWord();
 
           $data_penduduks = \DB::table('data_penduduks')
@@ -853,13 +853,13 @@ class suratcontroller extends Controller
 
           $mytime = Carbon\Carbon::now();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
           $mytime = Carbon\Carbon::now();
           
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
           
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -870,7 +870,7 @@ class suratcontroller extends Controller
         
           // Surat Persetujuan mempelai
           $file   = public_path('storage/surat/nikah/surat_persetujuan_mempelai.docx');
-          $hasil   = public_path('storage/surat/nikah/surat_persetujuan_mempelai_.docx');
+          $hasil   = public_path('storage/surat/nikah/surat_persetujuan_mempelai_.doc');
           $phpWord = new PhpWord();
 
           $data_penduduks = \DB::table('data_penduduks')
@@ -893,13 +893,13 @@ class suratcontroller extends Controller
 
           $mytime = Carbon\Carbon::now();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
           $mytime = Carbon\Carbon::now();
           
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
           
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -937,41 +937,41 @@ class suratcontroller extends Controller
           $mytime = Carbon\Carbon::now();
         
           $file   = public_path('storage/surat/surat_bio_penduduk.docx');
-          $hasil   = public_path('storage/surat/surat_bio_penduduk_.docx');
+          $hasil   = public_path('storage/surat/surat_bio_penduduk_.doc');
           $phpWord = new PhpWord();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
 
           
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
-          $doc -> setValue('nama',$data_penduduks[0]->Nama);
-          $doc -> setValue('no_ktp',$data_penduduks[0]->NIK);
-          $doc -> setValue('alamat',$data_penduduks[0]->Alamat);
-          $doc -> setValue('no_passpor',$data_penduduks[0]->No_Passpor);
-          $doc -> setValue('tanggal_akhir_passpor',$data_penduduks[0]->Tanggal_akhir_Paspor);
-          $doc -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
-          $doc -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
-          $doc -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
-          $doc -> setValue('akta_lahir',$data_penduduks[0]->Akta_Lahir);
-          $doc -> setValue('gol_darah',$data_penduduks[0]->Golongan_Darah);
-          $doc -> setValue('agama',$data_penduduks[0]->agama);
-          $doc -> setValue('status_perkawinan',$data_penduduks[0]->status_perkawinan);
-          $doc -> setValue('no_akta_perkawinan',$data_penduduks[0]->No_Akta_Perkawinan);
-          $doc -> setValue('tanggal_perkawinan',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Perkawinan)));
-          $doc -> setValue('no_akta_perceraian',$data_penduduks[0]->No_Akta_Perceraian);
-          $doc -> setValue('tanggal_perceraian',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Perceraian)));
-          $doc -> setValue('status_hubungan_dalam_keluarga',$data_penduduks[0]->Status_Hubungan_Dalam_Keluarga);
-          $doc -> setValue('cacat',$data_penduduks[0]->Cacat);
-          $doc -> setValue('pendidikan',$data_penduduks[0]->pendidikan);
-          $doc -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
-          $doc -> setValue('nama_ibu',$data_penduduks[0]->Nama_Ibu);
-          $doc -> setValue('nik_ibu',$data_penduduks[0]->NIK_Ibu);
-          $doc -> setValue('nama_ayah',$data_penduduks[0]->Nama_Ayah);
-          $doc -> setValue('nik_ayah',$data_penduduks[0]->NIK_Ayah);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
+          $docx -> setValue('nama',$data_penduduks[0]->Nama);
+          $docx -> setValue('no_ktp',$data_penduduks[0]->NIK);
+          $docx -> setValue('alamat',$data_penduduks[0]->Alamat);
+          $docx -> setValue('no_passpor',$data_penduduks[0]->No_Passpor);
+          $docx -> setValue('tanggal_akhir_passpor',$data_penduduks[0]->Tanggal_akhir_Paspor);
+          $docx -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
+          $docx -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
+          $docx -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
+          $docx -> setValue('akta_lahir',$data_penduduks[0]->Akta_Lahir);
+          $docx -> setValue('gol_darah',$data_penduduks[0]->Golongan_Darah);
+          $docx -> setValue('agama',$data_penduduks[0]->agama);
+          $docx -> setValue('status_perkawinan',$data_penduduks[0]->status_perkawinan);
+          $docx -> setValue('no_akta_perkawinan',$data_penduduks[0]->No_Akta_Perkawinan);
+          $docx -> setValue('tanggal_perkawinan',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Perkawinan)));
+          $docx -> setValue('no_akta_perceraian',$data_penduduks[0]->No_Akta_Perceraian);
+          $docx -> setValue('tanggal_perceraian',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Perceraian)));
+          $docx -> setValue('status_hubungan_dalam_keluarga',$data_penduduks[0]->Status_Hubungan_Dalam_Keluarga);
+          $docx -> setValue('cacat',$data_penduduks[0]->Cacat);
+          $docx -> setValue('pendidikan',$data_penduduks[0]->pendidikan);
+          $docx -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
+          $docx -> setValue('nama_ibu',$data_penduduks[0]->Nama_Ibu);
+          $docx -> setValue('nik_ibu',$data_penduduks[0]->NIK_Ibu);
+          $docx -> setValue('nama_ayah',$data_penduduks[0]->Nama_Ayah);
+          $docx -> setValue('nik_ayah',$data_penduduks[0]->NIK_Ayah);
 
 
           
@@ -979,8 +979,8 @@ class suratcontroller extends Controller
           
           
           
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -1005,41 +1005,41 @@ class suratcontroller extends Controller
           $mytime = Carbon\Carbon::now();
         
           $file   = public_path('storage/surat/surat_bio_penduduk.docx');
-          $hasil   = public_path('storage/surat/surat_bio_penduduk_.docx');
+          $hasil   = public_path('storage/surat/surat_bio_penduduk_.doc');
           $phpWord = new PhpWord();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
 
           
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
-          $doc -> setValue('nama',$data_penduduks[0]->Nama);
-          $doc -> setValue('no_ktp',$data_penduduks[0]->NIK);
-          $doc -> setValue('alamat',$data_penduduks[0]->Alamat);
-          $doc -> setValue('no_passpor',$data_penduduks[0]->No_Passpor);
-          $doc -> setValue('tanggal_akhir_passpor',$data_penduduks[0]->Tanggal_akhir_Paspor);
-          $doc -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
-          $doc -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
-          $doc -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
-          $doc -> setValue('akta_lahir',$data_penduduks[0]->Akta_Lahir);
-          $doc -> setValue('gol_darah',$data_penduduks[0]->Golongan_Darah);
-          $doc -> setValue('agama',$data_penduduks[0]->agama);
-          $doc -> setValue('status_perkawinan',$data_penduduks[0]->status_perkawinan);
-          $doc -> setValue('no_akta_perkawinan',$data_penduduks[0]->No_Akta_Perkawinan);
-          $doc -> setValue('tanggal_perkawinan',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Perkawinan)));
-          $doc -> setValue('no_akta_perceraian',$data_penduduks[0]->No_Akta_Perceraian);
-          $doc -> setValue('tanggal_perceraian',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Perceraian)));
-          $doc -> setValue('status_hubungan_dalam_keluarga',$data_penduduks[0]->Status_Hubungan_Dalam_Keluarga);
-          $doc -> setValue('cacat',$data_penduduks[0]->Cacat);
-          $doc -> setValue('pendidikan',$data_penduduks[0]->pendidikan);
-          $doc -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
-          $doc -> setValue('nama_ibu',$data_penduduks[0]->Nama_Ibu);
-          $doc -> setValue('nik_ibu',$data_penduduks[0]->NIK_Ibu);
-          $doc -> setValue('nama_ayah',$data_penduduks[0]->Nama_Ayah);
-          $doc -> setValue('nik_ayah',$data_penduduks[0]->NIK_Ayah);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
+          $docx -> setValue('nama',$data_penduduks[0]->Nama);
+          $docx -> setValue('no_ktp',$data_penduduks[0]->NIK);
+          $docx -> setValue('alamat',$data_penduduks[0]->Alamat);
+          $docx -> setValue('no_passpor',$data_penduduks[0]->No_Passpor);
+          $docx -> setValue('tanggal_akhir_passpor',$data_penduduks[0]->Tanggal_akhir_Paspor);
+          $docx -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
+          $docx -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
+          $docx -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
+          $docx -> setValue('akta_lahir',$data_penduduks[0]->Akta_Lahir);
+          $docx -> setValue('gol_darah',$data_penduduks[0]->Golongan_Darah);
+          $docx -> setValue('agama',$data_penduduks[0]->agama);
+          $docx -> setValue('status_perkawinan',$data_penduduks[0]->status_perkawinan);
+          $docx -> setValue('no_akta_perkawinan',$data_penduduks[0]->No_Akta_Perkawinan);
+          $docx -> setValue('tanggal_perkawinan',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Perkawinan)));
+          $docx -> setValue('no_akta_perceraian',$data_penduduks[0]->No_Akta_Perceraian);
+          $docx -> setValue('tanggal_perceraian',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Perceraian)));
+          $docx -> setValue('status_hubungan_dalam_keluarga',$data_penduduks[0]->Status_Hubungan_Dalam_Keluarga);
+          $docx -> setValue('cacat',$data_penduduks[0]->Cacat);
+          $docx -> setValue('pendidikan',$data_penduduks[0]->pendidikan);
+          $docx -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
+          $docx -> setValue('nama_ibu',$data_penduduks[0]->Nama_Ibu);
+          $docx -> setValue('nik_ibu',$data_penduduks[0]->NIK_Ibu);
+          $docx -> setValue('nama_ayah',$data_penduduks[0]->Nama_Ayah);
+          $docx -> setValue('nik_ayah',$data_penduduks[0]->NIK_Ayah);
 
 
           
@@ -1047,8 +1047,8 @@ class suratcontroller extends Controller
           
           
           
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -1086,41 +1086,41 @@ class suratcontroller extends Controller
           $mytime = Carbon\Carbon::now();
         
           $file   = public_path('storage/surat/surat_domisili_usaha_non_warga.docx');
-          $hasil   = public_path('storage/surat/surat_domisili_usaha_non_warga_.docx');
+          $hasil   = public_path('storage/surat/surat_domisili_usaha_non_warga_.doc');
           $phpWord = new PhpWord();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
 
           
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
-          $doc -> setValue('nama',$data_penduduks[0]->Nama);
-          $doc -> setValue('no_ktp',$data_penduduks[0]->NIK);
-          $doc -> setValue('no_kk',$data_penduduks[0]->No_KK);
-          $doc -> setValue('alamat',$data_penduduks[0]->Alamat);
-          $doc -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
-          $doc -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
-          $doc -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
-          $doc -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
-          $doc -> setValue('agama',$data_penduduks[0]->agama);
-          $doc -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
-          $doc -> setValue('rt',$data_penduduks[0]->RT);
-          $doc -> setValue('rw',$data_penduduks[0]->RW);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
+          $docx -> setValue('nama',$data_penduduks[0]->Nama);
+          $docx -> setValue('no_ktp',$data_penduduks[0]->NIK);
+          $docx -> setValue('no_kk',$data_penduduks[0]->No_KK);
+          $docx -> setValue('alamat',$data_penduduks[0]->Alamat);
+          $docx -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
+          $docx -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
+          $docx -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
+          $docx -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
+          $docx -> setValue('agama',$data_penduduks[0]->agama);
+          $docx -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
+          $docx -> setValue('rt',$data_penduduks[0]->RT);
+          $docx -> setValue('rw',$data_penduduks[0]->RW);
           if($kode_area_dusuns->count()==0){
-            $doc -> setValue('dusun',"-");
+            $docx -> setValue('dusun',"-");
 
           }else{
-            $doc -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
+            $docx -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
           }
           
 
           
           
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -1145,41 +1145,41 @@ class suratcontroller extends Controller
           $mytime = Carbon\Carbon::now();
         
           $file   = public_path('storage/surat/surat_domisili_usaha_non_warga.docx');
-          $hasil   = public_path('storage/surat/surat_domisili_usaha_non_warga_.docx');
+          $hasil   = public_path('storage/surat/surat_domisili_usaha_non_warga_.doc');
           $phpWord = new PhpWord();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
 
           
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
-          $doc -> setValue('nama',$data_penduduks[0]->Nama);
-          $doc -> setValue('no_ktp',$data_penduduks[0]->NIK);
-          $doc -> setValue('no_kk',$data_penduduks[0]->No_KK);
-          $doc -> setValue('alamat',$data_penduduks[0]->Alamat);
-          $doc -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
-          $doc -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
-          $doc -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
-          $doc -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
-          $doc -> setValue('agama',$data_penduduks[0]->agama);
-          $doc -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
-          $doc -> setValue('rt',$data_penduduks[0]->RT);
-          $doc -> setValue('rw',$data_penduduks[0]->RW);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
+          $docx -> setValue('nama',$data_penduduks[0]->Nama);
+          $docx -> setValue('no_ktp',$data_penduduks[0]->NIK);
+          $docx -> setValue('no_kk',$data_penduduks[0]->No_KK);
+          $docx -> setValue('alamat',$data_penduduks[0]->Alamat);
+          $docx -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
+          $docx -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
+          $docx -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
+          $docx -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
+          $docx -> setValue('agama',$data_penduduks[0]->agama);
+          $docx -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
+          $docx -> setValue('rt',$data_penduduks[0]->RT);
+          $docx -> setValue('rw',$data_penduduks[0]->RW);
           if($kode_area_dusuns->count()==0){
-            $doc -> setValue('dusun',"-");
+            $docx -> setValue('dusun',"-");
 
           }else{
-            $doc -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
+            $docx -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
           }
           
 
           
           
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -1216,41 +1216,41 @@ class suratcontroller extends Controller
           $mytime = Carbon\Carbon::now();
         
           $file   = public_path('storage/surat/surat_izin_pengangkutan_kayu.docx');
-          $hasil   = public_path('storage/surat/surat_izin_pengangkutan_kayu_.docx');
+          $hasil   = public_path('storage/surat/surat_izin_pengangkutan_kayu_.doc');
           $phpWord = new PhpWord();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
 
           
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
-          $doc -> setValue('nama',$data_penduduks[0]->Nama);
-          $doc -> setValue('no_ktp',$data_penduduks[0]->NIK);
-          $doc -> setValue('alamat',$data_penduduks[0]->Alamat);
-          $doc -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
-          $doc -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
-          $doc -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
-          $doc -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
-          $doc -> setValue('status_perkawinan',$data_penduduks[0]->status_perkawinan);
-          $doc -> setValue('agama',$data_penduduks[0]->agama);
-          $doc -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
-          $doc -> setValue('rt',$data_penduduks[0]->RT);
-          $doc -> setValue('rw',$data_penduduks[0]->RW);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
+          $docx -> setValue('nama',$data_penduduks[0]->Nama);
+          $docx -> setValue('no_ktp',$data_penduduks[0]->NIK);
+          $docx -> setValue('alamat',$data_penduduks[0]->Alamat);
+          $docx -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
+          $docx -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
+          $docx -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
+          $docx -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
+          $docx -> setValue('status_perkawinan',$data_penduduks[0]->status_perkawinan);
+          $docx -> setValue('agama',$data_penduduks[0]->agama);
+          $docx -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
+          $docx -> setValue('rt',$data_penduduks[0]->RT);
+          $docx -> setValue('rw',$data_penduduks[0]->RW);
           if($kode_area_dusuns->count()==0){
-            $doc -> setValue('dusun',"-");
+            $docx -> setValue('dusun',"-");
 
           }else{
-            $doc -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
+            $docx -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
           }
           
 
           
           
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -1275,42 +1275,42 @@ class suratcontroller extends Controller
           $mytime = Carbon\Carbon::now();
         
           $file   = public_path('storage/surat/surat_izin_pengangkutan_kayu.docx');
-          $hasil   = public_path('storage/surat/surat_izin_pengangkutan_kayu_.docx');
+          $hasil   = public_path('storage/surat/surat_izin_pengangkutan_kayu_.doc');
           $phpWord = new PhpWord();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
 
           
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
-          $doc -> setValue('nama',$data_penduduks[0]->Nama);
-          $doc -> setValue('no_ktp',$data_penduduks[0]->NIK);
-          $doc -> setValue('no_kk',$data_penduduks[0]->No_KK);
-          $doc -> setValue('alamat',$data_penduduks[0]->Alamat);
-          $doc -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
-          $doc -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
-          $doc -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
-          $doc -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
-          $doc -> setValue('status_perkawinan',$data_penduduks[0]->status_perkawinan);
-          $doc -> setValue('agama',$data_penduduks[0]->agama);
-          $doc -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
-          $doc -> setValue('rt',$data_penduduks[0]->RT);
-          $doc -> setValue('rw',$data_penduduks[0]->RW);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
+          $docx -> setValue('nama',$data_penduduks[0]->Nama);
+          $docx -> setValue('no_ktp',$data_penduduks[0]->NIK);
+          $docx -> setValue('no_kk',$data_penduduks[0]->No_KK);
+          $docx -> setValue('alamat',$data_penduduks[0]->Alamat);
+          $docx -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
+          $docx -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
+          $docx -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
+          $docx -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
+          $docx -> setValue('status_perkawinan',$data_penduduks[0]->status_perkawinan);
+          $docx -> setValue('agama',$data_penduduks[0]->agama);
+          $docx -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
+          $docx -> setValue('rt',$data_penduduks[0]->RT);
+          $docx -> setValue('rw',$data_penduduks[0]->RW);
           if($kode_area_dusuns->count()==0){
-            $doc -> setValue('dusun',"-");
+            $docx -> setValue('dusun',"-");
 
           }else{
-            $doc -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
+            $docx -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
           }
           
 
           
           
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -1347,41 +1347,41 @@ class suratcontroller extends Controller
           $mytime = Carbon\Carbon::now();
         
           $file   = public_path('storage/surat/surat_izin_pengangkutan_tanah_urug.docx');
-          $hasil   = public_path('storage/surat/surat_izin_pengangkutan_tanah_urug_.docx');
+          $hasil   = public_path('storage/surat/surat_izin_pengangkutan_tanah_urug_.doc');
           $phpWord = new PhpWord();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
 
           
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
-          $doc -> setValue('nama',$data_penduduks[0]->Nama);
-          $doc -> setValue('no_ktp',$data_penduduks[0]->NIK);
-          $doc -> setValue('alamat',$data_penduduks[0]->Alamat);
-          $doc -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
-          $doc -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
-          $doc -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
-          $doc -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
-          $doc -> setValue('status_perkawinan',$data_penduduks[0]->status_perkawinan);
-          $doc -> setValue('agama',$data_penduduks[0]->agama);
-          $doc -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
-          $doc -> setValue('rt',$data_penduduks[0]->RT);
-          $doc -> setValue('rw',$data_penduduks[0]->RW);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
+          $docx -> setValue('nama',$data_penduduks[0]->Nama);
+          $docx -> setValue('no_ktp',$data_penduduks[0]->NIK);
+          $docx -> setValue('alamat',$data_penduduks[0]->Alamat);
+          $docx -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
+          $docx -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
+          $docx -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
+          $docx -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
+          $docx -> setValue('status_perkawinan',$data_penduduks[0]->status_perkawinan);
+          $docx -> setValue('agama',$data_penduduks[0]->agama);
+          $docx -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
+          $docx -> setValue('rt',$data_penduduks[0]->RT);
+          $docx -> setValue('rw',$data_penduduks[0]->RW);
           if($kode_area_dusuns->count()==0){
-            $doc -> setValue('dusun',"-");
+            $docx -> setValue('dusun',"-");
 
           }else{
-            $doc -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
+            $docx -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
           }
           
 
           
           
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -1406,42 +1406,42 @@ class suratcontroller extends Controller
           $mytime = Carbon\Carbon::now();
         
           $file   = public_path('storage/surat/surat_izin_pengangkutan_tanah_urug.docx');
-          $hasil   = public_path('storage/surat/surat_izin_pengangkutan_tanah_urug_.docx');
+          $hasil   = public_path('storage/surat/surat_izin_pengangkutan_tanah_urug_.doc');
           $phpWord = new PhpWord();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
 
           
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
-          $doc -> setValue('nama',$data_penduduks[0]->Nama);
-          $doc -> setValue('no_ktp',$data_penduduks[0]->NIK);
-          $doc -> setValue('no_kk',$data_penduduks[0]->No_KK);
-          $doc -> setValue('alamat',$data_penduduks[0]->Alamat);
-          $doc -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
-          $doc -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
-          $doc -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
-          $doc -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
-          $doc -> setValue('status_perkawinan',$data_penduduks[0]->status_perkawinan);
-          $doc -> setValue('agama',$data_penduduks[0]->agama);
-          $doc -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
-          $doc -> setValue('rt',$data_penduduks[0]->RT);
-          $doc -> setValue('rw',$data_penduduks[0]->RW);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
+          $docx -> setValue('nama',$data_penduduks[0]->Nama);
+          $docx -> setValue('no_ktp',$data_penduduks[0]->NIK);
+          $docx -> setValue('no_kk',$data_penduduks[0]->No_KK);
+          $docx -> setValue('alamat',$data_penduduks[0]->Alamat);
+          $docx -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
+          $docx -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
+          $docx -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
+          $docx -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
+          $docx -> setValue('status_perkawinan',$data_penduduks[0]->status_perkawinan);
+          $docx -> setValue('agama',$data_penduduks[0]->agama);
+          $docx -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
+          $docx -> setValue('rt',$data_penduduks[0]->RT);
+          $docx -> setValue('rw',$data_penduduks[0]->RW);
           if($kode_area_dusuns->count()==0){
-            $doc -> setValue('dusun',"-");
+            $docx -> setValue('dusun',"-");
 
           }else{
-            $doc -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
+            $docx -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
           }
           
 
           
           
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -1478,21 +1478,21 @@ class suratcontroller extends Controller
           $mytime = Carbon\Carbon::now();
         
           $file   = public_path('storage/surat/surat_ket_beda_identitas_kis.docx');
-          $hasil   = public_path('storage/surat/surat_ket_beda_identitas_kis_.docx');
+          $hasil   = public_path('storage/surat/surat_ket_beda_identitas_kis_.doc');
           $phpWord = new PhpWord();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
 
           
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
           
           
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -1517,20 +1517,20 @@ class suratcontroller extends Controller
           $mytime = Carbon\Carbon::now();
         
           $file   = public_path('storage/surat/surat_ket_beda_identitas_kis.docx');
-          $hasil   = public_path('storage/surat/surat_ket_beda_identitas_kis_.docx');
+          $hasil   = public_path('storage/surat/surat_ket_beda_identitas_kis_.doc');
           $phpWord = new PhpWord();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
 
           
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
           
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -1566,36 +1566,36 @@ class suratcontroller extends Controller
           $mytime = Carbon\Carbon::now();
         
           $file   = public_path('storage/surat/surat_ket_beda_nama.docx');
-          $hasil   = public_path('storage/surat/surat_ket_beda_nama_.docx');
+          $hasil   = public_path('storage/surat/surat_ket_beda_nama_.doc');
           $phpWord = new PhpWord();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
 
           
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
-          $doc -> setValue('nama',$data_penduduks[0]->Nama);
-          $doc -> setValue('no_ktp',$data_penduduks[0]->NIK);
-          $doc -> setValue('alamat',$data_penduduks[0]->Alamat);
-          $doc -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
-          $doc -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
-          $doc -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
-          $doc -> setValue('agama',$data_penduduks[0]->agama);
-          $doc -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
-          $doc -> setValue('rt',$data_penduduks[0]->RT);
-          $doc -> setValue('rw',$data_penduduks[0]->RW);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
+          $docx -> setValue('nama',$data_penduduks[0]->Nama);
+          $docx -> setValue('no_ktp',$data_penduduks[0]->NIK);
+          $docx -> setValue('alamat',$data_penduduks[0]->Alamat);
+          $docx -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
+          $docx -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
+          $docx -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
+          $docx -> setValue('agama',$data_penduduks[0]->agama);
+          $docx -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
+          $docx -> setValue('rt',$data_penduduks[0]->RT);
+          $docx -> setValue('rw',$data_penduduks[0]->RW);
           if($kode_area_dusuns->count()==0){
-            $doc -> setValue('dusun',"-");
+            $docx -> setValue('dusun',"-");
 
           }else{
-            $doc -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
+            $docx -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
           }
           
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -1620,36 +1620,36 @@ class suratcontroller extends Controller
           $mytime = Carbon\Carbon::now();
         
           $file   = public_path('storage/surat/surat_ket_beda_nama.docx');
-          $hasil   = public_path('storage/surat/surat_ket_beda_nama_.docx');
+          $hasil   = public_path('storage/surat/surat_ket_beda_nama_.doc');
           $phpWord = new PhpWord();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
 
           
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
-          $doc -> setValue('nama',$data_penduduks[0]->Nama);
-          $doc -> setValue('no_ktp',$data_penduduks[0]->NIK);
-          $doc -> setValue('alamat',$data_penduduks[0]->Alamat);
-          $doc -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
-          $doc -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
-          $doc -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
-          $doc -> setValue('agama',$data_penduduks[0]->agama);
-          $doc -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
-          $doc -> setValue('rt',$data_penduduks[0]->RT);
-          $doc -> setValue('rw',$data_penduduks[0]->RW);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
+          $docx -> setValue('nama',$data_penduduks[0]->Nama);
+          $docx -> setValue('no_ktp',$data_penduduks[0]->NIK);
+          $docx -> setValue('alamat',$data_penduduks[0]->Alamat);
+          $docx -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
+          $docx -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
+          $docx -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
+          $docx -> setValue('agama',$data_penduduks[0]->agama);
+          $docx -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
+          $docx -> setValue('rt',$data_penduduks[0]->RT);
+          $docx -> setValue('rw',$data_penduduks[0]->RW);
           if($kode_area_dusuns->count()==0){
-            $doc -> setValue('dusun',"-");
+            $docx -> setValue('dusun',"-");
 
           }else{
-            $doc -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
+            $docx -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
           }
           
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -1684,41 +1684,41 @@ class suratcontroller extends Controller
           $mytime = Carbon\Carbon::now();
         
           $file   = public_path('storage/surat/surat_ket_catatan_kriminal.docx');
-          $hasil   = public_path('storage/surat/surat_ket_catatan_kriminal_.docx');
+          $hasil   = public_path('storage/surat/surat_ket_catatan_kriminal_.doc');
           $phpWord = new PhpWord();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
 
           
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
-          $doc -> setValue('nama',$data_penduduks[0]->Nama);
-          $doc -> setValue('no_ktp',$data_penduduks[0]->NIK);
-          $doc -> setValue('no_kk',$data_penduduks[0]->Nomor_KK);
-          $doc -> setValue('kepala_kk',$data_penduduks[0]->Kepala_Keluarga);
-          $doc -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
-          $doc -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
-          $doc -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
-          $doc -> setValue('agama',$data_penduduks[0]->agama);
-          $doc -> setValue('status_perkawinan',$data_penduduks[0]->status_perkawinan);
-          $doc -> setValue('pendidikan',$data_penduduks[0]->pendidikan);
-          $doc -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
-          $doc -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
-          $doc -> setValue('alamat',$data_penduduks[0]->Alamat);
-          $doc -> setValue('rt',$data_penduduks[0]->RT);
-          $doc -> setValue('rw',$data_penduduks[0]->RW);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
+          $docx -> setValue('nama',$data_penduduks[0]->Nama);
+          $docx -> setValue('no_ktp',$data_penduduks[0]->NIK);
+          $docx -> setValue('no_kk',$data_penduduks[0]->Nomor_KK);
+          $docx -> setValue('kepala_kk',$data_penduduks[0]->Kepala_Keluarga);
+          $docx -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
+          $docx -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
+          $docx -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
+          $docx -> setValue('agama',$data_penduduks[0]->agama);
+          $docx -> setValue('status_perkawinan',$data_penduduks[0]->status_perkawinan);
+          $docx -> setValue('pendidikan',$data_penduduks[0]->pendidikan);
+          $docx -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
+          $docx -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
+          $docx -> setValue('alamat',$data_penduduks[0]->Alamat);
+          $docx -> setValue('rt',$data_penduduks[0]->RT);
+          $docx -> setValue('rw',$data_penduduks[0]->RW);
           if($kode_area_dusuns->count()==0){
-            $doc -> setValue('dusun',"-");
+            $docx -> setValue('dusun',"-");
 
           }else{
-            $doc -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
+            $docx -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
           }
           
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -1743,41 +1743,41 @@ class suratcontroller extends Controller
           $mytime = Carbon\Carbon::now();
         
           $file   = public_path('storage/surat/surat_ket_catatan_kriminal.docx');
-          $hasil   = public_path('storage/surat/surat_ket_catatan_kriminal_.docx');
+          $hasil   = public_path('storage/surat/surat_ket_catatan_kriminal_.doc');
           $phpWord = new PhpWord();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
 
           
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
-          $doc -> setValue('nama',$data_penduduks[0]->Nama);
-          $doc -> setValue('no_ktp',$data_penduduks[0]->NIK);
-          $doc -> setValue('no_kk',$data_penduduks[0]->Nomor_KK);
-          $doc -> setValue('kepala_kk',$data_penduduks[0]->Kepala_Keluarga);
-          $doc -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
-          $doc -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
-          $doc -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
-          $doc -> setValue('agama',$data_penduduks[0]->agama);
-          $doc -> setValue('status_perkawinan',$data_penduduks[0]->status_perkawinan);
-          $doc -> setValue('pendidikan',$data_penduduks[0]->pendidikan);
-          $doc -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
-          $doc -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
-          $doc -> setValue('alamat',$data_penduduks[0]->Alamat);
-          $doc -> setValue('rt',$data_penduduks[0]->RT);
-          $doc -> setValue('rw',$data_penduduks[0]->RW);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
+          $docx -> setValue('nama',$data_penduduks[0]->Nama);
+          $docx -> setValue('no_ktp',$data_penduduks[0]->NIK);
+          $docx -> setValue('no_kk',$data_penduduks[0]->Nomor_KK);
+          $docx -> setValue('kepala_kk',$data_penduduks[0]->Kepala_Keluarga);
+          $docx -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
+          $docx -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
+          $docx -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
+          $docx -> setValue('agama',$data_penduduks[0]->agama);
+          $docx -> setValue('status_perkawinan',$data_penduduks[0]->status_perkawinan);
+          $docx -> setValue('pendidikan',$data_penduduks[0]->pendidikan);
+          $docx -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
+          $docx -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
+          $docx -> setValue('alamat',$data_penduduks[0]->Alamat);
+          $docx -> setValue('rt',$data_penduduks[0]->RT);
+          $docx -> setValue('rw',$data_penduduks[0]->RW);
           if($kode_area_dusuns->count()==0){
-            $doc -> setValue('dusun',"-");
+            $docx -> setValue('dusun',"-");
 
           }else{
-            $doc -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
+            $docx -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
           }
           
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -1813,37 +1813,37 @@ class suratcontroller extends Controller
           $mytime = Carbon\Carbon::now();
         
           $file   = public_path('storage/surat/surat_ket_cerai.docx');
-          $hasil   = public_path('storage/surat/surat_ket_cerai_.docx');
+          $hasil   = public_path('storage/surat/surat_ket_cerai_.doc');
           $phpWord = new PhpWord();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
 
           
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
-          $doc -> setValue('nama',$data_penduduks[0]->Nama);
-          $doc -> setValue('no_ktp',$data_penduduks[0]->NIK);
-          $doc -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
-          $doc -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
-          $doc -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
-          $doc -> setValue('agama',$data_penduduks[0]->agama);
-          $doc -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
-          $doc -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
-          $doc -> setValue('alamat',$data_penduduks[0]->Alamat);
-          $doc -> setValue('rt',$data_penduduks[0]->RT);
-          $doc -> setValue('rw',$data_penduduks[0]->RW);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
+          $docx -> setValue('nama',$data_penduduks[0]->Nama);
+          $docx -> setValue('no_ktp',$data_penduduks[0]->NIK);
+          $docx -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
+          $docx -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
+          $docx -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
+          $docx -> setValue('agama',$data_penduduks[0]->agama);
+          $docx -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
+          $docx -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
+          $docx -> setValue('alamat',$data_penduduks[0]->Alamat);
+          $docx -> setValue('rt',$data_penduduks[0]->RT);
+          $docx -> setValue('rw',$data_penduduks[0]->RW);
           if($kode_area_dusuns->count()==0){
-            $doc -> setValue('dusun',"-");
+            $docx -> setValue('dusun',"-");
 
           }else{
-            $doc -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
+            $docx -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
           }
           
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -1868,37 +1868,37 @@ class suratcontroller extends Controller
           $mytime = Carbon\Carbon::now();
         
           $file   = public_path('storage/surat/surat_ket_cerai.docx');
-          $hasil   = public_path('storage/surat/surat_ket_cerai_.docx');
+          $hasil   = public_path('storage/surat/surat_ket_cerai_.doc');
           $phpWord = new PhpWord();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
 
           
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
-          $doc -> setValue('nama',$data_penduduks[0]->Nama);
-          $doc -> setValue('no_ktp',$data_penduduks[0]->NIK);
-          $doc -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
-          $doc -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
-          $doc -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
-          $doc -> setValue('agama',$data_penduduks[0]->agama);
-          $doc -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
-          $doc -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
-          $doc -> setValue('alamat',$data_penduduks[0]->Alamat);
-          $doc -> setValue('rt',$data_penduduks[0]->RT);
-          $doc -> setValue('rw',$data_penduduks[0]->RW);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
+          $docx -> setValue('nama',$data_penduduks[0]->Nama);
+          $docx -> setValue('no_ktp',$data_penduduks[0]->NIK);
+          $docx -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
+          $docx -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
+          $docx -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
+          $docx -> setValue('agama',$data_penduduks[0]->agama);
+          $docx -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
+          $docx -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
+          $docx -> setValue('alamat',$data_penduduks[0]->Alamat);
+          $docx -> setValue('rt',$data_penduduks[0]->RT);
+          $docx -> setValue('rw',$data_penduduks[0]->RW);
           if($kode_area_dusuns->count()==0){
-            $doc -> setValue('dusun',"-");
+            $docx -> setValue('dusun',"-");
 
           }else{
-            $doc -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
+            $docx -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
           }
           
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -1934,37 +1934,37 @@ class suratcontroller extends Controller
           $mytime = Carbon\Carbon::now();
         
           $file   = public_path('storage/surat/surat_ket_domisili_usaha.docx');
-          $hasil   = public_path('storage/surat/surat_ket_domisili_usaha_.docx');
+          $hasil   = public_path('storage/surat/surat_ket_domisili_usaha_.doc');
           $phpWord = new PhpWord();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
 
           
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
-          $doc -> setValue('nama',$data_penduduks[0]->Nama);
-          $doc -> setValue('no_ktp',$data_penduduks[0]->NIK);
-          $doc -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
-          $doc -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
-          $doc -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
-          $doc -> setValue('agama',$data_penduduks[0]->agama);
-          $doc -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
-          $doc -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
-          $doc -> setValue('alamat',$data_penduduks[0]->Alamat);
-          $doc -> setValue('rt',$data_penduduks[0]->RT);
-          $doc -> setValue('rw',$data_penduduks[0]->RW);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
+          $docx -> setValue('nama',$data_penduduks[0]->Nama);
+          $docx -> setValue('no_ktp',$data_penduduks[0]->NIK);
+          $docx -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
+          $docx -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
+          $docx -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
+          $docx -> setValue('agama',$data_penduduks[0]->agama);
+          $docx -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
+          $docx -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
+          $docx -> setValue('alamat',$data_penduduks[0]->Alamat);
+          $docx -> setValue('rt',$data_penduduks[0]->RT);
+          $docx -> setValue('rw',$data_penduduks[0]->RW);
           if($kode_area_dusuns->count()==0){
-            $doc -> setValue('dusun',"-");
+            $docx -> setValue('dusun',"-");
 
           }else{
-            $doc -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
+            $docx -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
           }
           
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -1989,37 +1989,37 @@ class suratcontroller extends Controller
           $mytime = Carbon\Carbon::now();
         
           $file   = public_path('storage/surat/surat_ket_domisili_usaha.docx');
-          $hasil   = public_path('storage/surat/surat_ket_domisili_usaha_.docx');
+          $hasil   = public_path('storage/surat/surat_ket_domisili_usaha_.doc');
           $phpWord = new PhpWord();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
 
           
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
-          $doc -> setValue('nama',$data_penduduks[0]->Nama);
-          $doc -> setValue('no_ktp',$data_penduduks[0]->NIK);
-          $doc -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
-          $doc -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
-          $doc -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
-          $doc -> setValue('agama',$data_penduduks[0]->agama);
-          $doc -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
-          $doc -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
-          $doc -> setValue('alamat',$data_penduduks[0]->Alamat);
-          $doc -> setValue('rt',$data_penduduks[0]->RT);
-          $doc -> setValue('rw',$data_penduduks[0]->RW);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
+          $docx -> setValue('nama',$data_penduduks[0]->Nama);
+          $docx -> setValue('no_ktp',$data_penduduks[0]->NIK);
+          $docx -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
+          $docx -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
+          $docx -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
+          $docx -> setValue('agama',$data_penduduks[0]->agama);
+          $docx -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
+          $docx -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
+          $docx -> setValue('alamat',$data_penduduks[0]->Alamat);
+          $docx -> setValue('rt',$data_penduduks[0]->RT);
+          $docx -> setValue('rw',$data_penduduks[0]->RW);
           if($kode_area_dusuns->count()==0){
-            $doc -> setValue('dusun',"-");
+            $docx -> setValue('dusun',"-");
 
           }else{
-            $doc -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
+            $docx -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
           }
           
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -2055,37 +2055,37 @@ class suratcontroller extends Controller
           $mytime = Carbon\Carbon::now();
         
           $file   = public_path('storage/surat/surat_ket_harga_tanah.docx');
-          $hasil   = public_path('storage/surat/surat_ket_harga_tanah_.docx');
+          $hasil   = public_path('storage/surat/surat_ket_harga_tanah_.doc');
           $phpWord = new PhpWord();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
 
           
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
-          $doc -> setValue('nama',$data_penduduks[0]->Nama);
-          $doc -> setValue('no_ktp',$data_penduduks[0]->NIK);
-          $doc -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
-          $doc -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
-          $doc -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
-          $doc -> setValue('agama',$data_penduduks[0]->agama);
-          $doc -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
-          $doc -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
-          $doc -> setValue('alamat',$data_penduduks[0]->Alamat);
-          $doc -> setValue('rt',$data_penduduks[0]->RT);
-          $doc -> setValue('rw',$data_penduduks[0]->RW);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
+          $docx -> setValue('nama',$data_penduduks[0]->Nama);
+          $docx -> setValue('no_ktp',$data_penduduks[0]->NIK);
+          $docx -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
+          $docx -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
+          $docx -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
+          $docx -> setValue('agama',$data_penduduks[0]->agama);
+          $docx -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
+          $docx -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
+          $docx -> setValue('alamat',$data_penduduks[0]->Alamat);
+          $docx -> setValue('rt',$data_penduduks[0]->RT);
+          $docx -> setValue('rw',$data_penduduks[0]->RW);
           if($kode_area_dusuns->count()==0){
-            $doc -> setValue('dusun',"-");
+            $docx -> setValue('dusun',"-");
 
           }else{
-            $doc -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
+            $docx -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
           }
           
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -2110,37 +2110,37 @@ class suratcontroller extends Controller
           $mytime = Carbon\Carbon::now();
         
           $file   = public_path('storage/surat/surat_ket_harga_tanah.docx');
-          $hasil   = public_path('storage/surat/surat_ket_harga_tanah_.docx');
+          $hasil   = public_path('storage/surat/surat_ket_harga_tanah_.doc');
           $phpWord = new PhpWord();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
 
           
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
-          $doc -> setValue('nama',$data_penduduks[0]->Nama);
-          $doc -> setValue('no_ktp',$data_penduduks[0]->NIK);
-          $doc -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
-          $doc -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
-          $doc -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
-          $doc -> setValue('agama',$data_penduduks[0]->agama);
-          $doc -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
-          $doc -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
-          $doc -> setValue('alamat',$data_penduduks[0]->Alamat);
-          $doc -> setValue('rt',$data_penduduks[0]->RT);
-          $doc -> setValue('rw',$data_penduduks[0]->RW);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
+          $docx -> setValue('nama',$data_penduduks[0]->Nama);
+          $docx -> setValue('no_ktp',$data_penduduks[0]->NIK);
+          $docx -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
+          $docx -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
+          $docx -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
+          $docx -> setValue('agama',$data_penduduks[0]->agama);
+          $docx -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
+          $docx -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
+          $docx -> setValue('alamat',$data_penduduks[0]->Alamat);
+          $docx -> setValue('rt',$data_penduduks[0]->RT);
+          $docx -> setValue('rw',$data_penduduks[0]->RW);
           if($kode_area_dusuns->count()==0){
-            $doc -> setValue('dusun',"-");
+            $docx -> setValue('dusun',"-");
 
           }else{
-            $doc -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
+            $docx -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
           }
           
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -2176,38 +2176,38 @@ class suratcontroller extends Controller
           $mytime = Carbon\Carbon::now();
         
           $file   = public_path('storage/surat/surat_ket_jamkesos.docx');
-          $hasil   = public_path('storage/surat/surat_ket_jamkesos_.docx');
+          $hasil   = public_path('storage/surat/surat_ket_jamkesos_.doc');
           $phpWord = new PhpWord();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
 
           
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
-          $doc -> setValue('nama',$data_penduduks[0]->Nama);
-          $doc -> setValue('no_ktp',$data_penduduks[0]->NIK);
-          $doc -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
-          $doc -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
-          $doc -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
-          $doc -> setValue('agama',$data_penduduks[0]->agama);
-          $doc -> setValue('status_perkawinan',$data_penduduks[0]->status_perkawinan);
-          $doc -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
-          $doc -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
-          $doc -> setValue('alamat',$data_penduduks[0]->Alamat);
-          $doc -> setValue('rt',$data_penduduks[0]->RT);
-          $doc -> setValue('rw',$data_penduduks[0]->RW);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
+          $docx -> setValue('nama',$data_penduduks[0]->Nama);
+          $docx -> setValue('no_ktp',$data_penduduks[0]->NIK);
+          $docx -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
+          $docx -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
+          $docx -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
+          $docx -> setValue('agama',$data_penduduks[0]->agama);
+          $docx -> setValue('status_perkawinan',$data_penduduks[0]->status_perkawinan);
+          $docx -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
+          $docx -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
+          $docx -> setValue('alamat',$data_penduduks[0]->Alamat);
+          $docx -> setValue('rt',$data_penduduks[0]->RT);
+          $docx -> setValue('rw',$data_penduduks[0]->RW);
           if($kode_area_dusuns->count()==0){
-            $doc -> setValue('dusun',"-");
+            $docx -> setValue('dusun',"-");
 
           }else{
-            $doc -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
+            $docx -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
           }
           
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -2232,38 +2232,38 @@ class suratcontroller extends Controller
           $mytime = Carbon\Carbon::now();
         
           $file   = public_path('storage/surat/surat_ket_jamkesos.docx');
-          $hasil   = public_path('storage/surat/surat_ket_jamkesos_.docx');
+          $hasil   = public_path('storage/surat/surat_ket_jamkesos_.doc');
           $phpWord = new PhpWord();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
 
           
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
-          $doc -> setValue('nama',$data_penduduks[0]->Nama);
-          $doc -> setValue('no_ktp',$data_penduduks[0]->NIK);
-          $doc -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
-          $doc -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
-          $doc -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
-          $doc -> setValue('agama',$data_penduduks[0]->agama);
-          $doc -> setValue('status_perkawinan',$data_penduduks[0]->status_perkawinan);
-          $doc -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
-          $doc -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
-          $doc -> setValue('alamat',$data_penduduks[0]->Alamat);
-          $doc -> setValue('rt',$data_penduduks[0]->RT);
-          $doc -> setValue('rw',$data_penduduks[0]->RW);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
+          $docx -> setValue('nama',$data_penduduks[0]->Nama);
+          $docx -> setValue('no_ktp',$data_penduduks[0]->NIK);
+          $docx -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
+          $docx -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
+          $docx -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
+          $docx -> setValue('agama',$data_penduduks[0]->agama);
+          $docx -> setValue('status_perkawinan',$data_penduduks[0]->status_perkawinan);
+          $docx -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
+          $docx -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
+          $docx -> setValue('alamat',$data_penduduks[0]->Alamat);
+          $docx -> setValue('rt',$data_penduduks[0]->RT);
+          $docx -> setValue('rw',$data_penduduks[0]->RW);
           if($kode_area_dusuns->count()==0){
-            $doc -> setValue('dusun',"-");
+            $docx -> setValue('dusun',"-");
 
           }else{
-            $doc -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
+            $docx -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
           }
           
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -2300,37 +2300,37 @@ class suratcontroller extends Controller
           $mytime = Carbon\Carbon::now();
         
           $file   = public_path('storage/surat/surat_ket_kehilangan.docx');
-          $hasil   = public_path('storage/surat/surat_ket_kehilangan_.docx');
+          $hasil   = public_path('storage/surat/surat_ket_kehilangan_.doc');
           $phpWord = new PhpWord();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
 
           
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
-          $doc -> setValue('nama',$data_penduduks[0]->Nama);
-          $doc -> setValue('no_ktp',$data_penduduks[0]->NIK);
-          $doc -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
-          $doc -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
-          $doc -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
-          $doc -> setValue('agama',$data_penduduks[0]->agama);
-          $doc -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
-          $doc -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
-          $doc -> setValue('alamat',$data_penduduks[0]->Alamat);
-          $doc -> setValue('rt',$data_penduduks[0]->RT);
-          $doc -> setValue('rw',$data_penduduks[0]->RW);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
+          $docx -> setValue('nama',$data_penduduks[0]->Nama);
+          $docx -> setValue('no_ktp',$data_penduduks[0]->NIK);
+          $docx -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
+          $docx -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
+          $docx -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
+          $docx -> setValue('agama',$data_penduduks[0]->agama);
+          $docx -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
+          $docx -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
+          $docx -> setValue('alamat',$data_penduduks[0]->Alamat);
+          $docx -> setValue('rt',$data_penduduks[0]->RT);
+          $docx -> setValue('rw',$data_penduduks[0]->RW);
           if($kode_area_dusuns->count()==0){
-            $doc -> setValue('dusun',"-");
+            $docx -> setValue('dusun',"-");
 
           }else{
-            $doc -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
+            $docx -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
           }
           
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -2355,37 +2355,37 @@ class suratcontroller extends Controller
           $mytime = Carbon\Carbon::now();
         
           $file   = public_path('storage/surat/surat_ket_kehilangan.docx');
-          $hasil   = public_path('storage/surat/surat_ket_kehilangan_.docx');
+          $hasil   = public_path('storage/surat/surat_ket_kehilangan_.doc');
           $phpWord = new PhpWord();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
 
           
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
-          $doc -> setValue('nama',$data_penduduks[0]->Nama);
-          $doc -> setValue('no_ktp',$data_penduduks[0]->NIK);
-          $doc -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
-          $doc -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
-          $doc -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
-          $doc -> setValue('agama',$data_penduduks[0]->agama);
-          $doc -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
-          $doc -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
-          $doc -> setValue('alamat',$data_penduduks[0]->Alamat);
-          $doc -> setValue('rt',$data_penduduks[0]->RT);
-          $doc -> setValue('rw',$data_penduduks[0]->RW);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
+          $docx -> setValue('nama',$data_penduduks[0]->Nama);
+          $docx -> setValue('no_ktp',$data_penduduks[0]->NIK);
+          $docx -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
+          $docx -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
+          $docx -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
+          $docx -> setValue('agama',$data_penduduks[0]->agama);
+          $docx -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
+          $docx -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
+          $docx -> setValue('alamat',$data_penduduks[0]->Alamat);
+          $docx -> setValue('rt',$data_penduduks[0]->RT);
+          $docx -> setValue('rw',$data_penduduks[0]->RW);
           if($kode_area_dusuns->count()==0){
-            $doc -> setValue('dusun',"-");
+            $docx -> setValue('dusun',"-");
 
           }else{
-            $doc -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
+            $docx -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
           }
           
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -2421,21 +2421,21 @@ class suratcontroller extends Controller
           $mytime = Carbon\Carbon::now();
         
           $file   = public_path('storage/surat/surat_ket_jual_beli.docx');
-          $hasil   = public_path('storage/surat/surat_ket_jual_beli_.docx');
+          $hasil   = public_path('storage/surat/surat_ket_jual_beli_.doc');
           $phpWord = new PhpWord();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
 
           
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
           
           
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -2460,21 +2460,21 @@ class suratcontroller extends Controller
           $mytime = Carbon\Carbon::now();
         
           $file   = public_path('storage/surat/surat_ket_jual_beli.docx');
-          $hasil   = public_path('storage/surat/surat_ket_jual_beli_.docx');
+          $hasil   = public_path('storage/surat/surat_ket_jual_beli_.doc');
           $phpWord = new PhpWord();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
 
           
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
           
           
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -2512,41 +2512,41 @@ class suratcontroller extends Controller
           $mytime = Carbon\Carbon::now();
         
           $file   = public_path('storage/surat/surat_ket_kelakuan_baik.docx');
-          $hasil   = public_path('storage/surat/surat_ket_kelakuan_baik_.docx');
+          $hasil   = public_path('storage/surat/surat_ket_kelakuan_baik_.doc');
           $phpWord = new PhpWord();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
 
           
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
-          $doc -> setValue('nama',$data_penduduks[0]->Nama);
-          $doc -> setValue('no_ktp',$data_penduduks[0]->NIK);
-          $doc -> setValue('no_kk',$data_penduduks[0]->Nomor_KK);
-          $doc -> setValue('kepala_kk',$data_penduduks[0]->Kepala_Keluarga);
-          $doc -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
-          $doc -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
-          $doc -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
-          $doc -> setValue('agama',$data_penduduks[0]->agama);
-          $doc -> setValue('status_perkawinan',$data_penduduks[0]->status_perkawinan);
-          $doc -> setValue('pendidikan',$data_penduduks[0]->pendidikan);
-          $doc -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
-          $doc -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
-          $doc -> setValue('alamat',$data_penduduks[0]->Alamat);
-          $doc -> setValue('rt',$data_penduduks[0]->RT);
-          $doc -> setValue('rw',$data_penduduks[0]->RW);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
+          $docx -> setValue('nama',$data_penduduks[0]->Nama);
+          $docx -> setValue('no_ktp',$data_penduduks[0]->NIK);
+          $docx -> setValue('no_kk',$data_penduduks[0]->Nomor_KK);
+          $docx -> setValue('kepala_kk',$data_penduduks[0]->Kepala_Keluarga);
+          $docx -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
+          $docx -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
+          $docx -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
+          $docx -> setValue('agama',$data_penduduks[0]->agama);
+          $docx -> setValue('status_perkawinan',$data_penduduks[0]->status_perkawinan);
+          $docx -> setValue('pendidikan',$data_penduduks[0]->pendidikan);
+          $docx -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
+          $docx -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
+          $docx -> setValue('alamat',$data_penduduks[0]->Alamat);
+          $docx -> setValue('rt',$data_penduduks[0]->RT);
+          $docx -> setValue('rw',$data_penduduks[0]->RW);
           if($kode_area_dusuns->count()==0){
-            $doc -> setValue('dusun',"-");
+            $docx -> setValue('dusun',"-");
 
           }else{
-            $doc -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
+            $docx -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
           }
           
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -2571,41 +2571,41 @@ class suratcontroller extends Controller
           $mytime = Carbon\Carbon::now();
         
           $file   = public_path('storage/surat/surat_ket_kelakuan_baik.docx');
-          $hasil   = public_path('storage/surat/surat_ket_kelakuan_baik_.docx');
+          $hasil   = public_path('storage/surat/surat_ket_kelakuan_baik_.doc');
           $phpWord = new PhpWord();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
 
           
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
-          $doc -> setValue('nama',$data_penduduks[0]->Nama);
-          $doc -> setValue('no_ktp',$data_penduduks[0]->NIK);
-          $doc -> setValue('no_kk',$data_penduduks[0]->Nomor_KK);
-          $doc -> setValue('kepala_kk',$data_penduduks[0]->Kepala_Keluarga);
-          $doc -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
-          $doc -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
-          $doc -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
-          $doc -> setValue('agama',$data_penduduks[0]->agama);
-          $doc -> setValue('status_perkawinan',$data_penduduks[0]->status_perkawinan);
-          $doc -> setValue('pendidikan',$data_penduduks[0]->pendidikan);
-          $doc -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
-          $doc -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
-          $doc -> setValue('alamat',$data_penduduks[0]->Alamat);
-          $doc -> setValue('rt',$data_penduduks[0]->RT);
-          $doc -> setValue('rw',$data_penduduks[0]->RW);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
+          $docx -> setValue('nama',$data_penduduks[0]->Nama);
+          $docx -> setValue('no_ktp',$data_penduduks[0]->NIK);
+          $docx -> setValue('no_kk',$data_penduduks[0]->Nomor_KK);
+          $docx -> setValue('kepala_kk',$data_penduduks[0]->Kepala_Keluarga);
+          $docx -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
+          $docx -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
+          $docx -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
+          $docx -> setValue('agama',$data_penduduks[0]->agama);
+          $docx -> setValue('status_perkawinan',$data_penduduks[0]->status_perkawinan);
+          $docx -> setValue('pendidikan',$data_penduduks[0]->pendidikan);
+          $docx -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
+          $docx -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
+          $docx -> setValue('alamat',$data_penduduks[0]->Alamat);
+          $docx -> setValue('rt',$data_penduduks[0]->RT);
+          $docx -> setValue('rw',$data_penduduks[0]->RW);
           if($kode_area_dusuns->count()==0){
-            $doc -> setValue('dusun',"-");
+            $docx -> setValue('dusun',"-");
 
           }else{
-            $doc -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
+            $docx -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
           }
           
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -2642,36 +2642,36 @@ class suratcontroller extends Controller
           $mytime = Carbon\Carbon::now();
         
           $file   = public_path('storage/surat/surat_ket_kepemilikan_kendaraan.docx');
-          $hasil   = public_path('storage/surat/surat_ket_kepemilikan_kendaraan_.docx');
+          $hasil   = public_path('storage/surat/surat_ket_kepemilikan_kendaraan_.doc');
           $phpWord = new PhpWord();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
 
           
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
-          $doc -> setValue('nama',$data_penduduks[0]->Nama);
-          $doc -> setValue('no_ktp',$data_penduduks[0]->NIK);
-          $doc -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
-          $doc -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
-          $doc -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
-          $doc -> setValue('agama',$data_penduduks[0]->agama);
-          $doc -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
-          $doc -> setValue('alamat',$data_penduduks[0]->Alamat);
-          $doc -> setValue('rt',$data_penduduks[0]->RT);
-          $doc -> setValue('rw',$data_penduduks[0]->RW);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
+          $docx -> setValue('nama',$data_penduduks[0]->Nama);
+          $docx -> setValue('no_ktp',$data_penduduks[0]->NIK);
+          $docx -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
+          $docx -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
+          $docx -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
+          $docx -> setValue('agama',$data_penduduks[0]->agama);
+          $docx -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
+          $docx -> setValue('alamat',$data_penduduks[0]->Alamat);
+          $docx -> setValue('rt',$data_penduduks[0]->RT);
+          $docx -> setValue('rw',$data_penduduks[0]->RW);
           if($kode_area_dusuns->count()==0){
-            $doc -> setValue('dusun',"-");
+            $docx -> setValue('dusun',"-");
 
           }else{
-            $doc -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
+            $docx -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
           }
           
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -2696,36 +2696,36 @@ class suratcontroller extends Controller
           $mytime = Carbon\Carbon::now();
         
           $file   = public_path('storage/surat/surat_ket_kepemilikan_kendaraan.docx');
-          $hasil   = public_path('storage/surat/surat_ket_kepemilikan_kendaraan_.docx');
+          $hasil   = public_path('storage/surat/surat_ket_kepemilikan_kendaraan_.doc');
           $phpWord = new PhpWord();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
 
           
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
-          $doc -> setValue('nama',$data_penduduks[0]->Nama);
-          $doc -> setValue('no_ktp',$data_penduduks[0]->NIK);
-          $doc -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
-          $doc -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
-          $doc -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
-          $doc -> setValue('agama',$data_penduduks[0]->agama);
-          $doc -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
-          $doc -> setValue('alamat',$data_penduduks[0]->Alamat);
-          $doc -> setValue('rt',$data_penduduks[0]->RT);
-          $doc -> setValue('rw',$data_penduduks[0]->RW);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
+          $docx -> setValue('nama',$data_penduduks[0]->Nama);
+          $docx -> setValue('no_ktp',$data_penduduks[0]->NIK);
+          $docx -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
+          $docx -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
+          $docx -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
+          $docx -> setValue('agama',$data_penduduks[0]->agama);
+          $docx -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
+          $docx -> setValue('alamat',$data_penduduks[0]->Alamat);
+          $docx -> setValue('rt',$data_penduduks[0]->RT);
+          $docx -> setValue('rw',$data_penduduks[0]->RW);
           if($kode_area_dusuns->count()==0){
-            $doc -> setValue('dusun',"-");
+            $docx -> setValue('dusun',"-");
 
           }else{
-            $doc -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
+            $docx -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
           }
           
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -2762,36 +2762,36 @@ class suratcontroller extends Controller
           $mytime = Carbon\Carbon::now();
         
           $file   = public_path('storage/surat/surat_ket_kepemilikan_tanah.docx');
-          $hasil   = public_path('storage/surat/surat_ket_kepemilikan_tanah_.docx');
+          $hasil   = public_path('storage/surat/surat_ket_kepemilikan_tanah_.doc');
           $phpWord = new PhpWord();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
 
           
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
-          $doc -> setValue('nama',$data_penduduks[0]->Nama);
-          $doc -> setValue('no_ktp',$data_penduduks[0]->NIK);
-          $doc -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
-          $doc -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
-          $doc -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
-          $doc -> setValue('agama',$data_penduduks[0]->agama);
-          $doc -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
-          $doc -> setValue('alamat',$data_penduduks[0]->Alamat);
-          $doc -> setValue('rt',$data_penduduks[0]->RT);
-          $doc -> setValue('rw',$data_penduduks[0]->RW);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
+          $docx -> setValue('nama',$data_penduduks[0]->Nama);
+          $docx -> setValue('no_ktp',$data_penduduks[0]->NIK);
+          $docx -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
+          $docx -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
+          $docx -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
+          $docx -> setValue('agama',$data_penduduks[0]->agama);
+          $docx -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
+          $docx -> setValue('alamat',$data_penduduks[0]->Alamat);
+          $docx -> setValue('rt',$data_penduduks[0]->RT);
+          $docx -> setValue('rw',$data_penduduks[0]->RW);
           if($kode_area_dusuns->count()==0){
-            $doc -> setValue('dusun',"-");
+            $docx -> setValue('dusun',"-");
 
           }else{
-            $doc -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
+            $docx -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
           }
           
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -2816,36 +2816,36 @@ class suratcontroller extends Controller
           $mytime = Carbon\Carbon::now();
         
           $file   = public_path('storage/surat/surat_ket_kepemilikan_tanah.docx');
-          $hasil   = public_path('storage/surat/surat_ket_kepemilikan_tanah_.docx');
+          $hasil   = public_path('storage/surat/surat_ket_kepemilikan_tanah_.doc');
           $phpWord = new PhpWord();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
 
           
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
-          $doc -> setValue('nama',$data_penduduks[0]->Nama);
-          $doc -> setValue('no_ktp',$data_penduduks[0]->NIK);
-          $doc -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
-          $doc -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
-          $doc -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
-          $doc -> setValue('agama',$data_penduduks[0]->agama);
-          $doc -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
-          $doc -> setValue('alamat',$data_penduduks[0]->Alamat);
-          $doc -> setValue('rt',$data_penduduks[0]->RT);
-          $doc -> setValue('rw',$data_penduduks[0]->RW);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
+          $docx -> setValue('nama',$data_penduduks[0]->Nama);
+          $docx -> setValue('no_ktp',$data_penduduks[0]->NIK);
+          $docx -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
+          $docx -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
+          $docx -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
+          $docx -> setValue('agama',$data_penduduks[0]->agama);
+          $docx -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
+          $docx -> setValue('alamat',$data_penduduks[0]->Alamat);
+          $docx -> setValue('rt',$data_penduduks[0]->RT);
+          $docx -> setValue('rw',$data_penduduks[0]->RW);
           if($kode_area_dusuns->count()==0){
-            $doc -> setValue('dusun',"-");
+            $docx -> setValue('dusun',"-");
 
           }else{
-            $doc -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
+            $docx -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
           }
           
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -2882,37 +2882,37 @@ class suratcontroller extends Controller
           $mytime = Carbon\Carbon::now();
         
           $file   = public_path('storage/surat/surat_ket_kurang_mampu.docx');
-          $hasil   = public_path('storage/surat/surat_ket_kurang_mampu_.docx');
+          $hasil   = public_path('storage/surat/surat_ket_kurang_mampu_.doc');
           $phpWord = new PhpWord();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
 
           
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
-          $doc -> setValue('nama',$data_penduduks[0]->Nama);
-          $doc -> setValue('no_ktp',$data_penduduks[0]->NIK);
-          $doc -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
-          $doc -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
-          $doc -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
-          $doc -> setValue('agama',$data_penduduks[0]->agama);
-          $doc -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
-          $doc -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
-          $doc -> setValue('alamat',$data_penduduks[0]->Alamat);
-          $doc -> setValue('rt',$data_penduduks[0]->RT);
-          $doc -> setValue('rw',$data_penduduks[0]->RW);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
+          $docx -> setValue('nama',$data_penduduks[0]->Nama);
+          $docx -> setValue('no_ktp',$data_penduduks[0]->NIK);
+          $docx -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
+          $docx -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
+          $docx -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
+          $docx -> setValue('agama',$data_penduduks[0]->agama);
+          $docx -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
+          $docx -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
+          $docx -> setValue('alamat',$data_penduduks[0]->Alamat);
+          $docx -> setValue('rt',$data_penduduks[0]->RT);
+          $docx -> setValue('rw',$data_penduduks[0]->RW);
           if($kode_area_dusuns->count()==0){
-            $doc -> setValue('dusun',"-");
+            $docx -> setValue('dusun',"-");
 
           }else{
-            $doc -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
+            $docx -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
           }
           
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -2937,37 +2937,37 @@ class suratcontroller extends Controller
           $mytime = Carbon\Carbon::now();
         
           $file   = public_path('storage/surat/surat_ket_kurang_mampu.docx');
-          $hasil   = public_path('storage/surat/surat_ket_kurang_mampu_.docx');
+          $hasil   = public_path('storage/surat/surat_ket_kurang_mampu_.doc');
           $phpWord = new PhpWord();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
 
           
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
-          $doc -> setValue('nama',$data_penduduks[0]->Nama);
-          $doc -> setValue('no_ktp',$data_penduduks[0]->NIK);
-          $doc -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
-          $doc -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
-          $doc -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
-          $doc -> setValue('agama',$data_penduduks[0]->agama);
-          $doc -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
-          $doc -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
-          $doc -> setValue('alamat',$data_penduduks[0]->Alamat);
-          $doc -> setValue('rt',$data_penduduks[0]->RT);
-          $doc -> setValue('rw',$data_penduduks[0]->RW);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
+          $docx -> setValue('nama',$data_penduduks[0]->Nama);
+          $docx -> setValue('no_ktp',$data_penduduks[0]->NIK);
+          $docx -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
+          $docx -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
+          $docx -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
+          $docx -> setValue('agama',$data_penduduks[0]->agama);
+          $docx -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
+          $docx -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
+          $docx -> setValue('alamat',$data_penduduks[0]->Alamat);
+          $docx -> setValue('rt',$data_penduduks[0]->RT);
+          $docx -> setValue('rw',$data_penduduks[0]->RW);
           if($kode_area_dusuns->count()==0){
-            $doc -> setValue('dusun',"-");
+            $docx -> setValue('dusun',"-");
 
           }else{
-            $doc -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
+            $docx -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
           }
           
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -3005,38 +3005,38 @@ class suratcontroller extends Controller
           $mytime = Carbon\Carbon::now();
         
           $file   = public_path('storage/surat/surat_ket_luar_daerah.docx');
-          $hasil   = public_path('storage/surat/surat_ket_luar_daerah_.docx');
+          $hasil   = public_path('storage/surat/surat_ket_luar_daerah_.doc');
           $phpWord = new PhpWord();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
 
           
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
-          $doc -> setValue('nama',$data_penduduks[0]->Nama);
-          $doc -> setValue('no_ktp',$data_penduduks[0]->NIK);
-          $doc -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
-          $doc -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
-          $doc -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
-          $doc -> setValue('agama',$data_penduduks[0]->agama);
-          $doc -> setValue('status_perkawinan',$data_penduduks[0]->status_perkawinan);
-          $doc -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
-          $doc -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
-          $doc -> setValue('alamat',$data_penduduks[0]->Alamat);
-          $doc -> setValue('rt',$data_penduduks[0]->RT);
-          $doc -> setValue('rw',$data_penduduks[0]->RW);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
+          $docx -> setValue('nama',$data_penduduks[0]->Nama);
+          $docx -> setValue('no_ktp',$data_penduduks[0]->NIK);
+          $docx -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
+          $docx -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
+          $docx -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
+          $docx -> setValue('agama',$data_penduduks[0]->agama);
+          $docx -> setValue('status_perkawinan',$data_penduduks[0]->status_perkawinan);
+          $docx -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
+          $docx -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
+          $docx -> setValue('alamat',$data_penduduks[0]->Alamat);
+          $docx -> setValue('rt',$data_penduduks[0]->RT);
+          $docx -> setValue('rw',$data_penduduks[0]->RW);
           if($kode_area_dusuns->count()==0){
-            $doc -> setValue('dusun',"-");
+            $docx -> setValue('dusun',"-");
 
           }else{
-            $doc -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
+            $docx -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
           }
           
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -3061,38 +3061,38 @@ class suratcontroller extends Controller
           $mytime = Carbon\Carbon::now();
         
           $file   = public_path('storage/surat/surat_ket_luar_daerah.docx');
-          $hasil   = public_path('storage/surat/surat_ket_luar_daerah_.docx');
+          $hasil   = public_path('storage/surat/surat_ket_luar_daerah_.doc');
           $phpWord = new PhpWord();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
 
           
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
-          $doc -> setValue('nama',$data_penduduks[0]->Nama);
-          $doc -> setValue('no_ktp',$data_penduduks[0]->NIK);
-          $doc -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
-          $doc -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
-          $doc -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
-          $doc -> setValue('agama',$data_penduduks[0]->agama);
-          $doc -> setValue('status_perkawinan',$data_penduduks[0]->status_perkawinan);
-          $doc -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
-          $doc -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
-          $doc -> setValue('alamat',$data_penduduks[0]->Alamat);
-          $doc -> setValue('rt',$data_penduduks[0]->RT);
-          $doc -> setValue('rw',$data_penduduks[0]->RW);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
+          $docx -> setValue('nama',$data_penduduks[0]->Nama);
+          $docx -> setValue('no_ktp',$data_penduduks[0]->NIK);
+          $docx -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
+          $docx -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
+          $docx -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
+          $docx -> setValue('agama',$data_penduduks[0]->agama);
+          $docx -> setValue('status_perkawinan',$data_penduduks[0]->status_perkawinan);
+          $docx -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
+          $docx -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
+          $docx -> setValue('alamat',$data_penduduks[0]->Alamat);
+          $docx -> setValue('rt',$data_penduduks[0]->RT);
+          $docx -> setValue('rw',$data_penduduks[0]->RW);
           if($kode_area_dusuns->count()==0){
-            $doc -> setValue('dusun',"-");
+            $docx -> setValue('dusun',"-");
 
           }else{
-            $doc -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
+            $docx -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
           }
           
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -3129,40 +3129,40 @@ class suratcontroller extends Controller
           $mytime = Carbon\Carbon::now();
         
           $file   = public_path('storage/surat/surat_ket_luar_negeri.docx');
-          $hasil   = public_path('storage/surat/surat_ket_luar_negeri_.docx');
+          $hasil   = public_path('storage/surat/surat_ket_luar_negeri_.doc');
           $phpWord = new PhpWord();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
 
           
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
-          $doc -> setValue('nama',$data_penduduks[0]->Nama);
-          $doc -> setValue('no_ktp',$data_penduduks[0]->NIK);
-          $doc -> setValue('no_kk',$data_penduduks[0]->Nomor_KK);
-          $doc -> setValue('kepala_kk',$data_penduduks[0]->Kepala_Keluarga);
-          $doc -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
-          $doc -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
-          $doc -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
-          $doc -> setValue('agama',$data_penduduks[0]->agama);
-          $doc -> setValue('status_perkawinan',$data_penduduks[0]->status_perkawinan);
-          $doc -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
-          $doc -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
-          $doc -> setValue('alamat',$data_penduduks[0]->Alamat);
-          $doc -> setValue('rt',$data_penduduks[0]->RT);
-          $doc -> setValue('rw',$data_penduduks[0]->RW);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
+          $docx -> setValue('nama',$data_penduduks[0]->Nama);
+          $docx -> setValue('no_ktp',$data_penduduks[0]->NIK);
+          $docx -> setValue('no_kk',$data_penduduks[0]->Nomor_KK);
+          $docx -> setValue('kepala_kk',$data_penduduks[0]->Kepala_Keluarga);
+          $docx -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
+          $docx -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
+          $docx -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
+          $docx -> setValue('agama',$data_penduduks[0]->agama);
+          $docx -> setValue('status_perkawinan',$data_penduduks[0]->status_perkawinan);
+          $docx -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
+          $docx -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
+          $docx -> setValue('alamat',$data_penduduks[0]->Alamat);
+          $docx -> setValue('rt',$data_penduduks[0]->RT);
+          $docx -> setValue('rw',$data_penduduks[0]->RW);
           if($kode_area_dusuns->count()==0){
-            $doc -> setValue('dusun',"-");
+            $docx -> setValue('dusun',"-");
 
           }else{
-            $doc -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
+            $docx -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
           }
           
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -3187,40 +3187,40 @@ class suratcontroller extends Controller
           $mytime = Carbon\Carbon::now();
         
           $file   = public_path('storage/surat/surat_ket_luar_negeri.docx');
-          $hasil   = public_path('storage/surat/surat_ket_luar_negeri_.docx');
+          $hasil   = public_path('storage/surat/surat_ket_luar_negeri_.doc');
           $phpWord = new PhpWord();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
 
           
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
-          $doc -> setValue('nama',$data_penduduks[0]->Nama);
-          $doc -> setValue('no_ktp',$data_penduduks[0]->NIK);
-          $doc -> setValue('no_kk',$data_penduduks[0]->Nomor_KK);
-          $doc -> setValue('kepala_kk',$data_penduduks[0]->Kepala_Keluarga);
-          $doc -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
-          $doc -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
-          $doc -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
-          $doc -> setValue('agama',$data_penduduks[0]->agama);
-          $doc -> setValue('status_perkawinan',$data_penduduks[0]->status_perkawinan);
-          $doc -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
-          $doc -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
-          $doc -> setValue('alamat',$data_penduduks[0]->Alamat);
-          $doc -> setValue('rt',$data_penduduks[0]->RT);
-          $doc -> setValue('rw',$data_penduduks[0]->RW);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
+          $docx -> setValue('nama',$data_penduduks[0]->Nama);
+          $docx -> setValue('no_ktp',$data_penduduks[0]->NIK);
+          $docx -> setValue('no_kk',$data_penduduks[0]->Nomor_KK);
+          $docx -> setValue('kepala_kk',$data_penduduks[0]->Kepala_Keluarga);
+          $docx -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
+          $docx -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
+          $docx -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
+          $docx -> setValue('agama',$data_penduduks[0]->agama);
+          $docx -> setValue('status_perkawinan',$data_penduduks[0]->status_perkawinan);
+          $docx -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
+          $docx -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
+          $docx -> setValue('alamat',$data_penduduks[0]->Alamat);
+          $docx -> setValue('rt',$data_penduduks[0]->RT);
+          $docx -> setValue('rw',$data_penduduks[0]->RW);
           if($kode_area_dusuns->count()==0){
-            $doc -> setValue('dusun',"-");
+            $docx -> setValue('dusun',"-");
 
           }else{
-            $doc -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
+            $docx -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
           }
           
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -3257,38 +3257,38 @@ class suratcontroller extends Controller
           $mytime = Carbon\Carbon::now();
         
           $file   = public_path('storage/surat/surat_ket_penduduk.docx');
-          $hasil   = public_path('storage/surat/surat_ket_penduduk_.docx');
+          $hasil   = public_path('storage/surat/surat_ket_penduduk_.doc');
           $phpWord = new PhpWord();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
 
           
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
-          $doc -> setValue('nama',$data_penduduks[0]->Nama);
-          $doc -> setValue('no_ktp',$data_penduduks[0]->NIK);
-          $doc -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
-          $doc -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
-          $doc -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
-          $doc -> setValue('agama',$data_penduduks[0]->agama);
-          $doc -> setValue('umur',$data_penduduks[0]->Usia);
-          $doc -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
-          $doc -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
-          $doc -> setValue('alamat',$data_penduduks[0]->Alamat);
-          $doc -> setValue('rt',$data_penduduks[0]->RT);
-          $doc -> setValue('rw',$data_penduduks[0]->RW);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
+          $docx -> setValue('nama',$data_penduduks[0]->Nama);
+          $docx -> setValue('no_ktp',$data_penduduks[0]->NIK);
+          $docx -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
+          $docx -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
+          $docx -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
+          $docx -> setValue('agama',$data_penduduks[0]->agama);
+          $docx -> setValue('umur',$data_penduduks[0]->Usia);
+          $docx -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
+          $docx -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
+          $docx -> setValue('alamat',$data_penduduks[0]->Alamat);
+          $docx -> setValue('rt',$data_penduduks[0]->RT);
+          $docx -> setValue('rw',$data_penduduks[0]->RW);
           if($kode_area_dusuns->count()==0){
-            $doc -> setValue('dusun',"-");
+            $docx -> setValue('dusun',"-");
 
           }else{
-            $doc -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
+            $docx -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
           }
           
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -3313,38 +3313,38 @@ class suratcontroller extends Controller
           $mytime = Carbon\Carbon::now();
         
           $file   = public_path('storage/surat/surat_ket_penduduk.docx');
-          $hasil   = public_path('storage/surat/surat_ket_penduduk_.docx');
+          $hasil   = public_path('storage/surat/surat_ket_penduduk_.doc');
           $phpWord = new PhpWord();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
 
           
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
-          $doc -> setValue('nama',$data_penduduks[0]->Nama);
-          $doc -> setValue('no_ktp',$data_penduduks[0]->NIK);
-          $doc -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
-          $doc -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
-          $doc -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
-          $doc -> setValue('agama',$data_penduduks[0]->agama);
-          $doc -> setValue('umur',$data_penduduks[0]->Usia);
-          $doc -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
-          $doc -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
-          $doc -> setValue('alamat',$data_penduduks[0]->Alamat);
-          $doc -> setValue('rt',$data_penduduks[0]->RT);
-          $doc -> setValue('rw',$data_penduduks[0]->RW);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
+          $docx -> setValue('nama',$data_penduduks[0]->Nama);
+          $docx -> setValue('no_ktp',$data_penduduks[0]->NIK);
+          $docx -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
+          $docx -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
+          $docx -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
+          $docx -> setValue('agama',$data_penduduks[0]->agama);
+          $docx -> setValue('umur',$data_penduduks[0]->Usia);
+          $docx -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
+          $docx -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
+          $docx -> setValue('alamat',$data_penduduks[0]->Alamat);
+          $docx -> setValue('rt',$data_penduduks[0]->RT);
+          $docx -> setValue('rw',$data_penduduks[0]->RW);
           if($kode_area_dusuns->count()==0){
-            $doc -> setValue('dusun',"-");
+            $docx -> setValue('dusun',"-");
 
           }else{
-            $doc -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
+            $docx -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
           }
           
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -3380,39 +3380,39 @@ class suratcontroller extends Controller
           $mytime = Carbon\Carbon::now();
         
           $file   = public_path('storage/surat/surat_ket_tidak_memiliki_jamkesos.docx');
-          $hasil   = public_path('storage/surat/surat_ket_tidak_memiliki_jamkesos_.docx');
+          $hasil   = public_path('storage/surat/surat_ket_tidak_memiliki_jamkesos_.doc');
           $phpWord = new PhpWord();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
 
           
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
-          $doc -> setValue('nama',$data_penduduks[0]->Nama);
-          $doc -> setValue('no_ktp',$data_penduduks[0]->NIK);
-          $doc -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
-          $doc -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
-          $doc -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
-          $doc -> setValue('agama',$data_penduduks[0]->agama);
-          $doc -> setValue('status_perkawinan',$data_penduduks[0]->status_perkawinan);
-          $doc -> setValue('umur',$data_penduduks[0]->Usia);
-          $doc -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
-          $doc -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
-          $doc -> setValue('alamat',$data_penduduks[0]->Alamat);
-          $doc -> setValue('rt',$data_penduduks[0]->RT);
-          $doc -> setValue('rw',$data_penduduks[0]->RW);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
+          $docx -> setValue('nama',$data_penduduks[0]->Nama);
+          $docx -> setValue('no_ktp',$data_penduduks[0]->NIK);
+          $docx -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
+          $docx -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
+          $docx -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
+          $docx -> setValue('agama',$data_penduduks[0]->agama);
+          $docx -> setValue('status_perkawinan',$data_penduduks[0]->status_perkawinan);
+          $docx -> setValue('umur',$data_penduduks[0]->Usia);
+          $docx -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
+          $docx -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
+          $docx -> setValue('alamat',$data_penduduks[0]->Alamat);
+          $docx -> setValue('rt',$data_penduduks[0]->RT);
+          $docx -> setValue('rw',$data_penduduks[0]->RW);
           if($kode_area_dusuns->count()==0){
-            $doc -> setValue('dusun',"-");
+            $docx -> setValue('dusun',"-");
 
           }else{
-            $doc -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
+            $docx -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
           }
           
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -3437,39 +3437,39 @@ class suratcontroller extends Controller
           $mytime = Carbon\Carbon::now();
         
           $file   = public_path('storage/surat/surat_ket_tidak_memiliki_jamkesos.docx');
-          $hasil   = public_path('storage/surat/surat_ket_tidak_memiliki_jamkesos_.docx');
+          $hasil   = public_path('storage/surat/surat_ket_tidak_memiliki_jamkesos_.doc');
           $phpWord = new PhpWord();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
 
           
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
-          $doc -> setValue('nama',$data_penduduks[0]->Nama);
-          $doc -> setValue('no_ktp',$data_penduduks[0]->NIK);
-          $doc -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
-          $doc -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
-          $doc -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
-          $doc -> setValue('agama',$data_penduduks[0]->agama);
-          $doc -> setValue('status_perkawinan',$data_penduduks[0]->status_perkawinan);
-          $doc -> setValue('umur',$data_penduduks[0]->Usia);
-          $doc -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
-          $doc -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
-          $doc -> setValue('alamat',$data_penduduks[0]->Alamat);
-          $doc -> setValue('rt',$data_penduduks[0]->RT);
-          $doc -> setValue('rw',$data_penduduks[0]->RW);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
+          $docx -> setValue('nama',$data_penduduks[0]->Nama);
+          $docx -> setValue('no_ktp',$data_penduduks[0]->NIK);
+          $docx -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
+          $docx -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
+          $docx -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
+          $docx -> setValue('agama',$data_penduduks[0]->agama);
+          $docx -> setValue('status_perkawinan',$data_penduduks[0]->status_perkawinan);
+          $docx -> setValue('umur',$data_penduduks[0]->Usia);
+          $docx -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
+          $docx -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
+          $docx -> setValue('alamat',$data_penduduks[0]->Alamat);
+          $docx -> setValue('rt',$data_penduduks[0]->RT);
+          $docx -> setValue('rw',$data_penduduks[0]->RW);
           if($kode_area_dusuns->count()==0){
-            $doc -> setValue('dusun',"-");
+            $docx -> setValue('dusun',"-");
 
           }else{
-            $doc -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
+            $docx -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
           }
           
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -3506,38 +3506,38 @@ class suratcontroller extends Controller
           $mytime = Carbon\Carbon::now();
         
           $file   = public_path('storage/surat/surat_ket_usaha.docx');
-          $hasil   = public_path('storage/surat/surat_ket_usaha_.docx');
+          $hasil   = public_path('storage/surat/surat_ket_usaha_.doc');
           $phpWord = new PhpWord();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
 
           
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
-          $doc -> setValue('nama',$data_penduduks[0]->Nama);
-          $doc -> setValue('no_ktp',$data_penduduks[0]->NIK);
-          $doc -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
-          $doc -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
-          $doc -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
-          $doc -> setValue('agama',$data_penduduks[0]->agama);
-          $doc -> setValue('umur',$data_penduduks[0]->Usia);
-          $doc -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
-          $doc -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
-          $doc -> setValue('alamat',$data_penduduks[0]->Alamat);
-          $doc -> setValue('rt',$data_penduduks[0]->RT);
-          $doc -> setValue('rw',$data_penduduks[0]->RW);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
+          $docx -> setValue('nama',$data_penduduks[0]->Nama);
+          $docx -> setValue('no_ktp',$data_penduduks[0]->NIK);
+          $docx -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
+          $docx -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
+          $docx -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
+          $docx -> setValue('agama',$data_penduduks[0]->agama);
+          $docx -> setValue('umur',$data_penduduks[0]->Usia);
+          $docx -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
+          $docx -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
+          $docx -> setValue('alamat',$data_penduduks[0]->Alamat);
+          $docx -> setValue('rt',$data_penduduks[0]->RT);
+          $docx -> setValue('rw',$data_penduduks[0]->RW);
           if($kode_area_dusuns->count()==0){
-            $doc -> setValue('dusun',"-");
+            $docx -> setValue('dusun',"-");
 
           }else{
-            $doc -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
+            $docx -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
           }
           
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -3562,38 +3562,38 @@ class suratcontroller extends Controller
           $mytime = Carbon\Carbon::now();
         
           $file   = public_path('storage/surat/surat_ket_usaha.docx');
-          $hasil   = public_path('storage/surat/surat_ket_usaha_.docx');
+          $hasil   = public_path('storage/surat/surat_ket_usaha_.doc');
           $phpWord = new PhpWord();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
 
           
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
-          $doc -> setValue('nama',$data_penduduks[0]->Nama);
-          $doc -> setValue('no_ktp',$data_penduduks[0]->NIK);
-          $doc -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
-          $doc -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
-          $doc -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
-          $doc -> setValue('agama',$data_penduduks[0]->agama);
-          $doc -> setValue('umur',$data_penduduks[0]->Usia);
-          $doc -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
-          $doc -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
-          $doc -> setValue('alamat',$data_penduduks[0]->Alamat);
-          $doc -> setValue('rt',$data_penduduks[0]->RT);
-          $doc -> setValue('rw',$data_penduduks[0]->RW);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
+          $docx -> setValue('nama',$data_penduduks[0]->Nama);
+          $docx -> setValue('no_ktp',$data_penduduks[0]->NIK);
+          $docx -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
+          $docx -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
+          $docx -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
+          $docx -> setValue('agama',$data_penduduks[0]->agama);
+          $docx -> setValue('umur',$data_penduduks[0]->Usia);
+          $docx -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
+          $docx -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
+          $docx -> setValue('alamat',$data_penduduks[0]->Alamat);
+          $docx -> setValue('rt',$data_penduduks[0]->RT);
+          $docx -> setValue('rw',$data_penduduks[0]->RW);
           if($kode_area_dusuns->count()==0){
-            $doc -> setValue('dusun',"-");
+            $docx -> setValue('dusun',"-");
 
           }else{
-            $doc -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
+            $docx -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
           }
           
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -3628,38 +3628,38 @@ class suratcontroller extends Controller
           $mytime = Carbon\Carbon::now();
         
           $file   = public_path('storage/surat/surat_ket_yatim.docx');
-          $hasil   = public_path('storage/surat/surat_ket_yatim_.docx');
+          $hasil   = public_path('storage/surat/surat_ket_yatim_.doc');
           $phpWord = new PhpWord();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
 
           
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
-          $doc -> setValue('nama',$data_penduduks[0]->Nama);
-          $doc -> setValue('no_ktp',$data_penduduks[0]->NIK);
-          $doc -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
-          $doc -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
-          $doc -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
-          $doc -> setValue('agama',$data_penduduks[0]->agama);
-          $doc -> setValue('umur',$data_penduduks[0]->Usia);
-          $doc -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
-          $doc -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
-          $doc -> setValue('alamat',$data_penduduks[0]->Alamat);
-          $doc -> setValue('rt',$data_penduduks[0]->RT);
-          $doc -> setValue('rw',$data_penduduks[0]->RW);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
+          $docx -> setValue('nama',$data_penduduks[0]->Nama);
+          $docx -> setValue('no_ktp',$data_penduduks[0]->NIK);
+          $docx -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
+          $docx -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
+          $docx -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
+          $docx -> setValue('agama',$data_penduduks[0]->agama);
+          $docx -> setValue('umur',$data_penduduks[0]->Usia);
+          $docx -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
+          $docx -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
+          $docx -> setValue('alamat',$data_penduduks[0]->Alamat);
+          $docx -> setValue('rt',$data_penduduks[0]->RT);
+          $docx -> setValue('rw',$data_penduduks[0]->RW);
           if($kode_area_dusuns->count()==0){
-            $doc -> setValue('dusun',"-");
+            $docx -> setValue('dusun',"-");
 
           }else{
-            $doc -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
+            $docx -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
           }
           
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
@@ -3684,38 +3684,38 @@ class suratcontroller extends Controller
           $mytime = Carbon\Carbon::now();
         
           $file   = public_path('storage/surat/surat_ket_yatim.docx');
-          $hasil   = public_path('storage/surat/surat_ket_yatim_.docx');
+          $hasil   = public_path('storage/surat/surat_ket_yatim_.doc');
           $phpWord = new PhpWord();
 
-          $doc   = $phpWord->loadTemplate($file);
+          $docx   = $phpWord->loadTemplate($file);
 
           
-          $doc -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
-          $doc -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
-          $doc -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
-          $doc -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
-          $doc -> setValue('tahun',$mytime->year);
-          $doc -> setValue('nama',$data_penduduks[0]->Nama);
-          $doc -> setValue('no_ktp',$data_penduduks[0]->NIK);
-          $doc -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
-          $doc -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
-          $doc -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
-          $doc -> setValue('agama',$data_penduduks[0]->agama);
-          $doc -> setValue('umur',$data_penduduks[0]->Usia);
-          $doc -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
-          $doc -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
-          $doc -> setValue('alamat',$data_penduduks[0]->Alamat);
-          $doc -> setValue('rt',$data_penduduks[0]->RT);
-          $doc -> setValue('rw',$data_penduduks[0]->RW);
+          $docx -> setValue('nama_kabupaten',$kopsurats[0]->Nama_Kabupaten);
+          $docx -> setValue('nama_kecamatan',$kopsurats[0]->Nama_Kecamatan);
+          $docx -> setValue('nama_desa',$kopsurats[0]->Nama_Desa);
+          $docx -> setValue('alamat_desa',$kopsurats[0]->Alamat_Desa);
+          $docx -> setValue('tahun',$mytime->year);
+          $docx -> setValue('nama',$data_penduduks[0]->Nama);
+          $docx -> setValue('no_ktp',$data_penduduks[0]->NIK);
+          $docx -> setValue('tempat_lahir',$data_penduduks[0]->Tempat_Lahir);
+          $docx -> setValue('tanggal_lahir',date("d-m-Y", strtotime($data_penduduks[0]->Tanggal_Lahir)));
+          $docx -> setValue('jenis_kelamin',$data_penduduks[0]->jenis_kelamin);
+          $docx -> setValue('agama',$data_penduduks[0]->agama);
+          $docx -> setValue('umur',$data_penduduks[0]->Usia);
+          $docx -> setValue('warganegara',$data_penduduks[0]->Kewarganegaraan);
+          $docx -> setValue('pekerjaan',$data_penduduks[0]->jenis_pekerjaan);
+          $docx -> setValue('alamat',$data_penduduks[0]->Alamat);
+          $docx -> setValue('rt',$data_penduduks[0]->RT);
+          $docx -> setValue('rw',$data_penduduks[0]->RW);
           if($kode_area_dusuns->count()==0){
-            $doc -> setValue('dusun',"-");
+            $docx -> setValue('dusun',"-");
 
           }else{
-            $doc -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
+            $docx -> setValue('dusun',$kode_area_dusuns[0]->Nama_Dusun);
           }
           
-          $doc -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
-          $doc -> saveAs($hasil);
+          $docx -> setValue('tgl_surat',date("d-m-Y", strtotime($mytime->toDateTimeString())));
+          $docx -> saveAs($hasil);
 
           return response()->download($hasil)->deleteFileAfterSend(true);
 
